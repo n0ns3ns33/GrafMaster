@@ -1069,3 +1069,196 @@ body {
         font-size: 0.7rem;
     }
 }
+/* Дополнительные стили для кнопок экспорта/импорта и отзывов */
+.export-btn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.export-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #1a6fa0);
+}
+
+.import-btn {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.import-btn:hover {
+    background: linear-gradient(135deg, #8e44ad, #7d3c98);
+}
+
+.reviews-btn {
+    background: linear-gradient(135deg, #e91e63, #c2185b);
+}
+
+.reviews-btn:hover {
+    background: linear-gradient(135deg, #c2185b, #ad1457);
+}
+
+/* Стили для формы отзыва */
+.review-form {
+    background: linear-gradient(135deg, #1e2f3a, #16242e);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.review-form h4 {
+    color: #ffd966;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.rating-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    font-size: 2rem;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rating-input label:hover,
+.rating-input label:hover ~ label,
+.rating-input input:checked ~ label {
+    color: #ffc107;
+}
+
+.review-text-input {
+    width: 100%;
+    background: #0f1a1f;
+    border: 1px solid #ffa500;
+    border-radius: 12px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9rem;
+    resize: vertical;
+    margin-bottom: 12px;
+}
+
+.review-text-input:focus {
+    outline: none;
+    border-color: #ffd966;
+}
+
+.submit-review-btn {
+    background: linear-gradient(95deg, #ffa500, #ff7e05);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+}
+
+.reviews-list {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-item {
+    background: rgba(30, 40, 50, 0.5);
+    border-radius: 12px;
+    padding: 12px;
+    border-left: 3px solid #ffa500;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #ffd966;
+    font-size: 0.85rem;
+}
+
+.review-rating {
+    display: flex;
+    gap: 3px;
+}
+
+.review-star {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+.review-star.empty {
+    color: #555;
+}
+
+.review-date {
+    font-size: 0.65rem;
+    color: #888;
+}
+
+.review-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #ddd;
+}
+
+.delete-review-btn {
+    background: rgba(231, 76, 60, 0.3);
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+
+.delete-review-btn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.no-reviews {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+.average-rating {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.average-rating .rating-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.average-rating .rating-stars {
+    font-size: 1.2rem;
+}
+
+.average-rating .rating-count {
+    font-size: 0.8rem;
+    color: #aaa;
+}
