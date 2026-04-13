@@ -48,6 +48,10 @@
                     <button id="resetProgressBtn" class="control-btn reset-btn">🗑️ Сбросить статистику</button>
                     <button id="unlockAllBtn" class="control-btn unlock-btn">🔓 Открыть все уровни</button>
                     <button id="showAchievementsBtn" class="control-btn achievements-btn">🏆 Достижения</button>
+                    <button id="exportSaveBtn" class="control-btn export-btn">💾 Экспорт сохранения</button>
+                    <label for="importSaveInput" class="control-btn import-btn" style="display: block; text-align: center; cursor: pointer;">📂 Импорт сохранения</label>
+                    <input type="file" id="importSaveInput" accept=".json" style="display: none;">
+                    <button id="showReviewsBtn" class="control-btn reviews-btn">⭐ Отзывы</button>
                 </div>
             </aside>
             <main class="content-area">
@@ -80,6 +84,17 @@
                 <span class="modal-close">&times;</span>
             </div>
             <div class="modal-body" id="achievementsPanel"></div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно отзывов -->
+    <div id="reviewsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⭐ Отзывы и оценки</h2>
+                <span class="modal-close-reviews">&times;</span>
+            </div>
+            <div class="modal-body" id="reviewsPanel"></div>
         </div>
     </div>
     
