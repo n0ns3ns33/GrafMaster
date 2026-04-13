@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#1a2a3a">
+    <title>GrafMaster | RPG Квест по функциям</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>📈 GrafMaster</h1>
+            <div class="level-info">
+                <div class="exp-info">
+                    <span>✨ Опыт: </span>
+                    <span id="expValue">0</span>
+                    <span> / </span>
+                    <span id="expNext">100</span>
+                    <div class="exp-bar-container">
+                        <div class="exp-bar-fill" id="expBarFill"></div>
+                    </div>
+                </div>
+                <div class="level-info-right">
+                    <span id="currentLevelDisplay">Уровень 1: Линейная функция</span>
+                    <div class="stars-progress"><span id="starsCount">⭐ 0</span></div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Мобильная кнопка меню (только на телефонах) -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        
+        <div class="main-layout">
+            <aside class="levels-sidebar" id="levelsSidebar">
+                <div class="sidebar-header">
+                    <h3>🗺️ Квест-карта</h3>
+                    <button class="close-sidebar-btn" id="closeSidebarBtn">✕</button>
+                </div>
+                <div class="levels-list" id="levelsList"></div>
+                <div class="total-progress">
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="totalProgressFill"></div></div>
+                    <span id="totalProgressText">0% завершено</span>
+                </div>
+                <div class="control-buttons">
+                    <button id="resetProgressBtn" class="control-btn reset-btn">🗑️ Сбросить статистику</button>
+                    <button id="unlockAllBtn" class="control-btn unlock-btn">🔓 Открыть все уровни</button>
+                    <button id="showAchievementsBtn" class="control-btn achievements-btn">🏆 Достижения</button>
+                </div>
+            </aside>
+            <main class="content-area">
+                <div class="game-tabs-navigation">
+                    <button class="game-tab-btn active" data-tab="theory" id="tabTheory">
+                        <span class="tab-icon">📖</span>
+                        <span class="tab-label">Теория</span>
+                    </button>
+                    <button class="game-tab-btn" data-tab="test" id="tabTest">
+                        <span class="tab-icon">📝</span>
+                        <span class="tab-label">Тест</span>
+                    </button>
+                    <button class="game-tab-btn" data-tab="practice" id="tabPractice">
+                        <span class="tab-icon">🎮</span>
+                        <span class="tab-label">Практика</span>
+                    </button>
+                </div>
+                <div id="theoryTab" class="tab-content active"></div>
+                <div id="testTab" class="tab-content"></div>
+                <div id="practiceTab" class="tab-content"></div>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Модальное окно достижений -->
+    <div id="achievementsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏆 Достижения</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body" id="achievementsPanel"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
