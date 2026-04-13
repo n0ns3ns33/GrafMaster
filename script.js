@@ -1287,13 +1287,258 @@ function init() {
 }
 
 init();
+// ==================== СИСТЕМА ОТЗЫВОВ ====================
+let reviews = JSON.parse(localStorage.getItem("grafMasterReviews")) || [];
+
+function saveReviews() {
+    localStorage.setItem("grafMasterReviews", JSON.stringify(reviews));
+}
+
+function addReview(author, rating, text) {
+    const newReview = {
+        id: Date.now(),
+        author: author || "Аноним",
+        rating: Math.min(5, Math.max(1, parseInt(rating) || 5)),
+        text: text.trim() || "Отличный сайт для изучения функций!",
+        date: new Date().toLocaleString()
+    };
+    reviews.unshift(newReview);
+    saveReviews();
+    renderReviews();
+    return newReview;
+}
+
+function deleteReview(id) {
+    reviews = reviews.filter(r => r.id !== id);
+    saveReviews();
+    renderReviews();
+}
+
+function getAverageRating() {
+    if (reviews.length === 0) return 0;
+    const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
+    return (sum / reviews.length).toFixed(1);
+}
+
+function renderStars(rating, size = "normal") {
+    const starSize = size === "small" ? "0.8rem" : "1rem";
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars += `<span class="review-star" style="font-size:${starSize}">★</span>`;
+        } else {
+            stars += `<span class="review-star empty" style="font-size:${starSize}">☆</span>`;
+        }
+    }
+    return stars;
+}
+
+function renderReviews() {
+    const reviewsPanel = document.getElementById("reviewsPanel");
+    if (!reviewsPanel) return;
+    
+    const avgRating = getAverageRating();
+    const totalReviews = reviews.length;
+    
+    let html = `
+        <div class="review-form">
+            <h4>📝 Оставить отзыв</h4>
+            <div class="rating-input">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            </div>
+            <input type="text" id="reviewAuthorInput" placeholder="Ваше имя (необязательно)" class="review-text-input" style="margin-bottom:10px;">
+            <textarea id="reviewTextInput" rows="3" placeholder="Ваш отзыв..." class="review-text-input"></textarea>
+            <button id="submitReviewBtn" class="submit-review-btn">📤 Отправить отзыв</button>
+        </div>
+    `;
+    
+    if (totalReviews > 0) {
+        html += `
+            <div class="average-rating">
+                <div class="rating-value">${avgRating}</div>
+                <div class="rating-stars">${renderStars(avgRating)}</div>
+                <div class="rating-count">${totalReviews} ${totalReviews === 1 ? 'отзыв' : totalReviews < 5 ? 'отзыва' : 'отзывов'}</div>
+            </div>
+        `;
+    }
+    
+    html += `<div class="reviews-list">`;
+    
+    if (reviews.length === 0) {
+        html += `<div class="no-reviews">✨ Пока нет отзывов. Будьте первым!</div>`;
+    } else {
+        reviews.forEach(review => {
+            html += `
+                <div class="review-item" data-id="${review.id}">
+                    <div class="review-header">
+                        <span class="review-author">${escapeHtml(review.author)}</span>
+                        <div class="review-rating">${renderStars(review.rating, "small")}</div>
+                        <span class="review-date">${review.date}</span>
+                    </div>
+                    <div class="review-text">${escapeHtml(review.text)}</div>
+                    <button class="delete-review-btn" data-id="${review.id}">🗑️ Удалить</button>
+                </div>
+            `;
+        });
+    }
+    
+    html += `</div>`;
+    reviewsPanel.innerHTML = html;
+    
+    document.getElementById("submitReviewBtn")?.addEventListener("click", () => {
+        const ratingInput = document.querySelector('input[name="rating"]:checked');
+        const rating = ratingInput ? ratingInput.value : 5;
+        const author = document.getElementById("reviewAuthorInput")?.value.trim() || "";
+        const text = document.getElementById("reviewTextInput")?.value.trim() || "";
+        
+        if (!text) {
+            alert("Пожалуйста, напишите отзыв!");
+            return;
+        }
+        
+        addReview(author, rating, text);
+        
+        // Очищаем форму
+        if (ratingInput) ratingInput.checked = false;
+        if (document.getElementById("reviewAuthorInput")) document.getElementById("reviewAuthorInput").value = "";
+        if (document.getElementById("reviewTextInput")) document.getElementById("reviewTextInput").value = "";
+        
+        alert("Спасибо за ваш отзыв! 🌟");
+    });
+    
+    document.querySelectorAll(".delete-review-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const id = parseInt(btn.dataset.id);
+            if (confirm("Удалить этот отзыв?")) {
+                deleteReview(id);
+            }
+        });
+    });
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// ==================== ЭКСПОРТ/ИМПОРТ СОХРАНЕНИЙ ====================
+function exportSave() {
+    const saveData = {
+        version: "1.0",
+        exportDate: new Date().toISOString(),
+        progress: userProgress,
+        achievements: earnedAchievements
+    };
+    
+    const dataStr = JSON.stringify(saveData, null, 2);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `grafmaster_save_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    alert("💾 Сохранение экспортировано! Файл сохранён в папку Загрузки.");
+}
+
+function importSave(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const saveData = JSON.parse(e.target.result);
+            
+            if (saveData.progress && saveData.achievements !== undefined) {
+                // Восстанавливаем прогресс
+                userProgress = saveData.progress;
+                earnedAchievements = saveData.achievements || [];
+                
+                // Сохраняем в localStorage
+                localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
+                localStorage.setItem("graphGameAchievements", JSON.stringify(earnedAchievements));
+                
+                // Переинициализируем
+                initProgress();
+                
+                // Обновляем интерфейс
+                updateExpUI();
+                renderSidebar();
+                renderAllTabs();
+                updateHeaderInfo();
+                updateBlockProgress();
+                updateTabIconsStatus(currentLevel);
+                renderAchievements();
+                
+                alert("✅ Сохранение успешно загружено! Страница будет обновлена.");
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                alert("❌ Неверный формат файла сохранения!");
+            }
+        } catch(err) {
+            alert("❌ Ошибка при чтении файла: " + err.message);
+        }
+    };
+    reader.readAsText(file);
+}
+
+// ==================== МОДАЛЬНЫЕ ОКНА ====================
+const reviewsModal = document.getElementById("reviewsModal");
+const showReviewsBtn = document.getElementById("showReviewsBtn");
+const closeReviewsBtn = document.querySelector(".modal-close-reviews");
+const exportBtn = document.getElementById("exportSaveBtn");
+const importInput = document.getElementById("importSaveInput");
+
+if (showReviewsBtn) {
+    showReviewsBtn.onclick = () => {
+        renderReviews();
+        if (reviewsModal) reviewsModal.style.display = "block";
+    };
+}
+
+if (closeReviewsBtn) {
+    closeReviewsBtn.onclick = () => {
+        if (reviewsModal) reviewsModal.style.display = "none";
+    };
+}
+
+if (exportBtn) {
+    exportBtn.onclick = exportSave;
+}
+
+if (importInput) {
+    importInput.onchange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            importSave(e.target.files[0]);
+        }
+        importInput.value = "";
+    };
+}
+
+// Закрытие модальных окон по клику вне
+window.onclick = function(event) {
+    const achievementsModal = document.getElementById("achievementsModal");
+    if (event.target === achievementsModal) {
+        achievementsModal.style.display = "none";
+    }
+    if (event.target === reviewsModal) {
+        reviewsModal.style.display = "none";
+    }
+}
+
 // ==================== МОБИЛЬНОЕ МЕНЮ ====================
 const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const levelsSidebar = document.getElementById("levelsSidebar");
 const closeSidebarBtn = document.getElementById("closeSidebarBtn");
 
 function openMobileSidebar() {
-    if (levelsSidebar) {
+    if (levelsSidebar && window.innerWidth <= 768) {
         levelsSidebar.classList.add("open");
         document.body.style.overflow = "hidden";
     }
@@ -1316,8 +1561,7 @@ if (closeSidebarBtn) {
 
 // Закрытие сайдбара при клике вне его на мобильных
 document.addEventListener("click", function(event) {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile && levelsSidebar && levelsSidebar.classList.contains("open")) {
+    if (window.innerWidth <= 768 && levelsSidebar && levelsSidebar.classList.contains("open")) {
         const isClickInside = levelsSidebar.contains(event.target);
         const isClickOnMenuBtn = mobileMenuBtn && mobileMenuBtn.contains(event.target);
         if (!isClickInside && !isClickOnMenuBtn) {
@@ -1327,16 +1571,18 @@ document.addEventListener("click", function(event) {
 });
 
 // При выборе уровня на мобильном - закрываем сайдбар
-const originalRenderSidebar = renderSidebar;
-window.renderSidebar = function() {
-    originalRenderSidebar();
-    // Добавляем обработчики для кнопок уровней на мобильных
-    document.querySelectorAll(".level-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-            if (window.innerWidth <= 768) {
-                closeMobileSidebar();
-            }
-        });
-    });
-};
-renderSidebar();
+if (typeof renderSidebar === 'function') {
+    const originalRenderSidebar = renderSidebar;
+    window.renderSidebar = function() {
+        originalRenderSidebar();
+        setTimeout(() => {
+            document.querySelectorAll(".level-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    if (window.innerWidth <= 768) {
+                        closeMobileSidebar();
+                    }
+                });
+            });
+        }, 100);
+    };
+}
