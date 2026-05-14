@@ -360,244 +360,135 @@ const levelsData = [
 
 // ==================== ПРАКТИЧЕСКИЕ ЗАДАНИЯ ====================
 const practiceTasks = {
-    0: [ // Линейная функция
-        { targetFunc: "2*x+1", description: "Прямая, проходящая через точки (0;1) и (1;3)", hint: "k=2, b=1" },
-        { targetFunc: "-x+3", description: "Прямая, проходящая через точки (0;3) и (3;0)", hint: "убывающая прямая, k=-1, b=3" },
-        { targetFunc: "0.5*x-2", description: "Прямая, проходящая через точки (0;-2) и (4;0)", hint: "прямая с пологим наклоном, k=0.5, b=-2" },
-        { targetFunc: "4", description: "Горизонтальная прямая на уровне y=4", hint: "горизонтальная прямая, k=0, b=4" },
-        { targetFunc: "-2*x", description: "Прямая, проходящая через начало координат и точку (1;-2)", hint: "проходит через начало координат, k=-2" }
+    0: [
+        { formula: "2*x+1", display: "y = 2x + 1", type: "line", needPoints: 2 },
+        { formula: "-x+3", display: "y = -x + 3", type: "line", needPoints: 2 },
+        { formula: "0.5*x-2", display: "y = 0.5x - 2", type: "line", needPoints: 2 },
+        { formula: "4", display: "y = 4", type: "line", needPoints: 2 },
+        { formula: "-2*x", display: "y = -2x", type: "line", needPoints: 2 }
     ],
-    1: [ // Квадратичная функция
-        { targetFunc: "x*x-2*x-3", description: "Парабола с корнями -1 и 3, вершина в (1;-4)", hint: "парабола ветвями вверх, корни -1 и 3" },
-        { targetFunc: "-x*x+4*x-3", description: "Парабола с вершиной в (2;1), ветви вниз", hint: "парабола ветвями вниз, вершина в x=2" },
-        { targetFunc: "x*x-4", description: "Парабола с корнями -2 и 2, вершина в (0;-4)", hint: "парабола с корнями ±2, вершина в (0;-4)" },
-        { targetFunc: "2*x*x-8*x+6", description: "Парабола с вершиной в (2;-2), ветви вверх", hint: "ветви вверх, вершина в x=2, y=-2" },
-        { targetFunc: "-x*x+2*x", description: "Парабола с максимумом в (1;1), корни 0 и 2", hint: "парабола с максимумом в x=1, корни 0 и 2" }
+    1: [
+        { formula: "x*x-2*x-3", display: "y = x² - 2x - 3", type: "curve", needPoints: 5 },
+        { formula: "-x*x+4*x-3", display: "y = -x² + 4x - 3", type: "curve", needPoints: 5 },
+        { formula: "x*x-4", display: "y = x² - 4", type: "curve", needPoints: 5 },
+        { formula: "2*x*x-8*x+6", display: "y = 2x² - 8x + 6", type: "curve", needPoints: 5 },
+        { formula: "-x*x+2*x", display: "y = -x² + 2x", type: "curve", needPoints: 5 }
     ],
-    2: [ // Обратная пропорциональность
-        { targetFunc: "3/x", description: "Гипербола, ветви в I и III четвертях, проходит через (1;3)", hint: "гипербола в I и III четвертях, k=3" },
-        { targetFunc: "-2/x", description: "Гипербола, ветви во II и IV четвертях, проходит через (1;-2)", hint: "гипербола во II и IV четвертях, k=-2" },
-        { targetFunc: "1/x", description: "Гипербола, ветви в I и III четвертях, проходит через (1;1)", hint: "классическая гипербола, k=1" },
-        { targetFunc: "5/x", description: "Гипербола, ветви в I и III четвертях, проходит через (1;5)", hint: "гипербола с k=5" },
-        { targetFunc: "-4/x", description: "Гипербола, ветви во II и IV четвертях, проходит через (1;-4)", hint: "гипербола с k=-4" }
+    2: [
+        { formula: "3/x", display: "y = 3/x", type: "hyperbola", needPoints: 6 },
+        { formula: "-2/x", display: "y = -2/x", type: "hyperbola", needPoints: 6 },
+        { formula: "1/x", display: "y = 1/x", type: "hyperbola", needPoints: 6 },
+        { formula: "4/x", display: "y = 4/x", type: "hyperbola", needPoints: 6 },
+        { formula: "-3/x", display: "y = -3/x", type: "hyperbola", needPoints: 6 }
     ],
-    3: [ // y = x
-        { targetFunc: "x", description: "Прямая под углом 45°, проходит через начало координат", hint: "прямая под 45°, проходит через (0;0)" },
-        { targetFunc: "x+2", description: "Прямая, параллельная y=x, сдвинутая вверх на 2", hint: "сдвиг вверх на 2" },
-        { targetFunc: "x-3", description: "Прямая, параллельная y=x, сдвинутая вниз на 3", hint: "сдвиг вниз на 3" },
-        { targetFunc: "2*x", description: "Прямая, проходящая через (0;0) и (1;2), более крутая", hint: "более крутая прямая, k=2" },
-        { targetFunc: "0.5*x", description: "Прямая, проходящая через (0;0) и (2;1), более пологая", hint: "более пологая прямая, k=0.5" }
+    3: [
+        { formula: "x", display: "y = x", type: "line", needPoints: 2 },
+        { formula: "x+2", display: "y = x + 2", type: "line", needPoints: 2 },
+        { formula: "x-3", display: "y = x - 3", type: "line", needPoints: 2 },
+        { formula: "2*x", display: "y = 2x", type: "line", needPoints: 2 },
+        { formula: "0.5*x", display: "y = 0.5x", type: "line", needPoints: 2 }
     ],
-    4: [ // y = x²
-        { targetFunc: "x*x", description: "Парабола с вершиной в (0;0), ветви вверх", hint: "парабола через (0;0), ветви вверх" },
-        { targetFunc: "x*x+2", description: "Парабола с вершиной в (0;2), ветви вверх", hint: "сдвиг вверх на 2" },
-        { targetFunc: "x*x-4", description: "Парабола с вершиной в (0;-4), корни -2 и 2", hint: "сдвиг вниз на 4, корни ±2" },
-        { targetFunc: "2*x*x", description: "Узкая парабола с вершиной в (0;0)", hint: "более узкая парабола, a=2" },
-        { targetFunc: "0.5*x*x", description: "Широкая парабола с вершиной в (0;0)", hint: "более широкая парабола, a=0.5" }
+    4: [
+        { formula: "x*x", display: "y = x²", type: "curve", needPoints: 5 },
+        { formula: "x*x+2", display: "y = x² + 2", type: "curve", needPoints: 5 },
+        { formula: "x*x-4", display: "y = x² - 4", type: "curve", needPoints: 5 },
+        { formula: "2*x*x", display: "y = 2x²", type: "curve", needPoints: 5 },
+        { formula: "0.5*x*x", display: "y = 0.5x²", type: "curve", needPoints: 5 }
     ],
-    5: [ // y = x³
-        { targetFunc: "x*x*x", description: "Кубическая парабола, проходит через (0;0), (1;1), (-1;-1)", hint: "кубическая парабола, проходит через (0;0)" },
-        { targetFunc: "x*x*x-2*x", description: "Кубическая парабола с двумя экстремумами", hint: "кубическая с двумя экстремумами" },
-        { targetFunc: "2*x*x*x", description: "Кубическая парабола, более крутая, проходит через (1;2)", hint: "более крутая кубическая" },
-        { targetFunc: "-x*x*x", description: "Кубическая парабола, отражённая относительно оси X", hint: "отражение относительно OX" },
-        { targetFunc: "x*x*x+3*x", description: "Возрастающая кубическая парабола", hint: "возрастающая кубическая" }
+    5: [
+        { formula: "x*x*x", display: "y = x³", type: "curve", needPoints: 7 },
+        { formula: "2*x*x*x", display: "y = 2x³", type: "curve", needPoints: 7 },
+        { formula: "-x*x*x", display: "y = -x³", type: "curve", needPoints: 7 },
+        { formula: "x*x*x-2*x", display: "y = x³ - 2x", type: "curve", needPoints: 7 },
+        { formula: "x*x*x+x", display: "y = x³ + x", type: "curve", needPoints: 7 }
     ],
-    6: [ // Квадратный корень
-        { targetFunc: "Math.sqrt(x)", description: "График начинается в (0;0), растёт всё медленнее", hint: "корень из x, x≥0" },
-        { targetFunc: "Math.sqrt(x)+2", description: "График начинается в (0;2), растёт медленно", hint: "сдвиг вверх на 2" },
-        { targetFunc: "2*Math.sqrt(x)", description: "График начинается в (0;0), растёт быстрее", hint: "растяжение по y" },
-        { targetFunc: "Math.sqrt(x-2)", description: "График начинается в (2;0), определён при x≥2", hint: "сдвиг вправо на 2" },
-        { targetFunc: "Math.sqrt(x+1)", description: "График начинается в (-1;0), определён при x≥-1", hint: "сдвиг влево на 1" }
+    6: [
+        { formula: "Math.sqrt(x)", display: "y = √x", type: "curve", needPoints: 6 },
+        { formula: "Math.sqrt(x)+2", display: "y = √x + 2", type: "curve", needPoints: 6 },
+        { formula: "2*Math.sqrt(x)", display: "y = 2√x", type: "curve", needPoints: 6 },
+        { formula: "Math.sqrt(x-2)", display: "y = √(x-2)", type: "curve", needPoints: 6 },
+        { formula: "Math.sqrt(x+1)", display: "y = √(x+1)", type: "curve", needPoints: 6 }
     ],
-    7: [ // Модуль
-        { targetFunc: "Math.abs(x)", description: "График в виде галочки с вершиной в (0;0)", hint: "галочка, вершина в (0;0)" },
-        { targetFunc: "Math.abs(x)+1", description: "График в виде галочки с вершиной в (0;1)", hint: "сдвиг вверх на 1" },
-        { targetFunc: "Math.abs(x-2)", description: "График в виде галочки с вершиной в (2;0)", hint: "сдвиг вправо на 2" },
-        { targetFunc: "2*Math.abs(x)", description: "Более крутая галочка с вершиной в (0;0)", hint: "более крутая галочка" },
-        { targetFunc: "Math.abs(x+1)-2", description: "Галочка с вершиной в (-1;-2)", hint: "сдвиг влево на 1 и вниз на 2" }
+    7: [
+        { formula: "Math.abs(x)", display: "y = |x|", type: "line", needPoints: 5 },
+        { formula: "Math.abs(x)+1", display: "y = |x| + 1", type: "line", needPoints: 5 },
+        { formula: "Math.abs(x-2)", display: "y = |x-2|", type: "line", needPoints: 5 },
+        { formula: "2*Math.abs(x)", display: "y = 2|x|", type: "line", needPoints: 5 },
+        { formula: "Math.abs(x+1)-2", display: "y = |x+1| - 2", type: "line", needPoints: 5 }
     ]
 };
 
-// ==================== ДОСТИЖЕНИЯ (РЕАЛЬНЫЕ ЦЕЛИ) ====================
+// ==================== ДОСТИЖЕНИЯ ====================
 const achievements = [
-    { id: "first_theory", name: "📖 Первые шаги", description: "Изучить первую тему", icon: "📖", requirement: { type: "theory", level: 0 } },
-    { id: "first_test", name: "🎯 Знаток", description: "Правильно ответить на все вопросы первого теста", icon: "🎯", requirement: { type: "test", level: 0 } },
-    { id: "first_practice", name: "🎮 Мастер графиков", description: "Выполнить первую практику", icon: "🎮", requirement: { type: "practice", level: 0 } },
-    { id: "three_stars", name: "⭐ Звёздный час", description: "Получить 3 звезды на любом уровне", icon: "⭐⭐⭐", requirement: { type: "stars", count: 3 } },
-    { id: "perfect_level", name: "🏆 Покоритель функций", description: "Полностью пройти любой уровень (3 звезды)", icon: "🏆", requirement: { type: "perfect", level: null } },
-    { id: "practice_5", name: "🔧 Ученик", description: "Выполнить 5 заданий практики", icon: "🔧", requirement: { type: "practice_count", count: 5 } },
-    { id: "practice_10", name: "📐 Практикант", description: "Выполнить 10 заданий практики", icon: "📐", requirement: { type: "practice_count", count: 10 } },
-    { id: "practice_20", name: "⚡ Мастер", description: "Выполнить 20 заданий практики", icon: "⚡", requirement: { type: "practice_count", count: 20 } },
-    { id: "practice_30", name: "💎 Эксперт", description: "Выполнить 30 заданий практики", icon: "💎", requirement: { type: "practice_count", count: 30 } },
-    { id: "practice_all", name: "👑 Абсолютный чемпион", description: "Выполнить ВСЕ 40 заданий практики", icon: "👑", requirement: { type: "practice_count", count: 40 } },
-    { id: "all_unlocked", name: "🔓 Исследователь", description: "Открыть все уровни", icon: "🔓", requirement: { type: "all_unlocked" } },
-    { id: "completionist", name: "🌟 Завершитель", description: "Полностью пройти все 8 уровней", icon: "🌟", requirement: { type: "complete_all" } }
+    { id: "first_theory", name: "📖 Первые шаги", description: "Изучить первую тему", icon: "📖", req: { type: "theory" } },
+    { id: "first_test", name: "🎯 Знаток", description: "Правильно ответить на все вопросы первого теста", icon: "🎯", req: { type: "test" } },
+    { id: "first_practice", name: "🎮 Мастер графиков", description: "Выполнить первую практику", icon: "🎮", req: { type: "practice" } },
+    { id: "practice_10", name: "📐 Практикант", description: "Выполнить 10 заданий практики", icon: "📐", req: { type: "practice_count", count: 10 } },
+    { id: "practice_20", name: "⚡ Мастер", description: "Выполнить 20 заданий практики", icon: "⚡", req: { type: "practice_count", count: 20 } },
+    { id: "practice_all", name: "👑 Чемпион", description: "Выполнить ВСЕ задания практики", icon: "👑", req: { type: "practice_count", count: 40 } },
+    { id: "all_unlocked", name: "🔓 Исследователь", description: "Открыть все уровни", icon: "🔓", req: { type: "all_unlocked" } }
 ];
 
 let earnedAchievements = JSON.parse(localStorage.getItem("graphGameAchievements")) || [];
 
 function checkAchievements() {
-    const newAchievements = [];
-    
-    // Подсчёт выполненных заданий практики
-    let totalPracticeTasks = 0;
-    let perfectLevels = 0;
-    
+    let totalPractice = 0;
     for (let i = 0; i < levelsData.length; i++) {
         const comp = userProgress.completedTests[i] || {};
-        const stars = userProgress.stars[i] || 0;
-        
-        if (stars === 3) perfectLevels++;
-        
-        if (comp.practiceTasks) {
-            totalPracticeTasks += Object.values(comp.practiceTasks).filter(v => v === true).length;
-        }
+        if (comp.practiceTasks) totalPractice += Object.values(comp.practiceTasks).filter(v => v).length;
     }
-    
-    // Проверка каждого достижения
     for (const ach of achievements) {
         if (earnedAchievements.includes(ach.id)) continue;
-        
         let earned = false;
-        
-        switch (ach.requirement.type) {
-            case "theory":
-                if (userProgress.completedTests[0]?.theoryViewed) earned = true;
-                break;
-            case "test":
-                if (userProgress.completedTests[0]?.test) earned = true;
-                break;
-            case "practice":
-                if (userProgress.completedTests[0]?.practice) earned = true;
-                break;
-            case "stars":
-                let hasThreeStars = Object.values(userProgress.stars).some(s => s === 3);
-                if (hasThreeStars) earned = true;
-                break;
-            case "perfect":
-                for (let i = 0; i < levelsData.length; i++) {
-                    if (userProgress.stars[i] === 3) {
-                        earned = true;
-                        break;
-                    }
-                }
-                break;
-            case "practice_count":
-                if (totalPracticeTasks >= ach.requirement.count) earned = true;
-                break;
-            case "all_unlocked":
-                if (userProgress.unlockedLevels === levelsData.length) earned = true;
-                break;
-            case "complete_all":
-                let allCompleted = true;
-                for (let i = 0; i < levelsData.length; i++) {
-                    const comp = userProgress.completedTests[i] || {};
-                    if (!(comp.theoryViewed && comp.test && comp.practice)) {
-                        allCompleted = false;
-                        break;
-                    }
-                }
-                if (allCompleted) earned = true;
-                break;
-        }
-        
-        if (earned) {
-            newAchievements.push(ach);
-            earnedAchievements.push(ach.id);
-        }
+        if (ach.req.type === "theory") earned = userProgress.completedTests[0]?.theoryViewed;
+        else if (ach.req.type === "test") earned = userProgress.completedTests[0]?.test;
+        else if (ach.req.type === "practice") earned = userProgress.completedTests[0]?.practice;
+        else if (ach.req.type === "practice_count") earned = totalPractice >= ach.req.count;
+        else if (ach.req.type === "all_unlocked") earned = userProgress.unlockedLevels === levelsData.length;
+        if (earned) { earnedAchievements.push(ach.id); showAchievement(ach); }
     }
-    
-    if (newAchievements.length > 0) {
-        localStorage.setItem("graphGameAchievements", JSON.stringify(earnedAchievements));
-        showAchievementNotification(newAchievements);
-        renderAchievements();
-    }
+    localStorage.setItem("graphGameAchievements", JSON.stringify(earnedAchievements));
+    renderAchievements();
 }
 
-function showAchievementNotification(newAchievements) {
-    for (const ach of newAchievements) {
-        const notification = document.createElement("div");
-        notification.className = "achievement-notification";
-        notification.innerHTML = `
-            <div class="achievement-notification-icon">${ach.icon}</div>
-            <div class="achievement-notification-content">
-                <div class="achievement-notification-title">🏆 Достижение разблокировано!</div>
-                <div class="achievement-notification-name">${ach.name}</div>
-                <div class="achievement-notification-desc">${ach.description}</div>
-            </div>
-        `;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.classList.add("show");
-        }, 100);
-        
-        setTimeout(() => {
-            notification.classList.remove("show");
-            setTimeout(() => notification.remove(), 500);
-        }, 4000);
-    }
+function showAchievement(ach) {
+    const notif = document.createElement("div");
+    notif.className = "achievement-notification";
+    notif.innerHTML = `<div class="achievement-notification-icon">${ach.icon}</div><div class="achievement-notification-content"><div>🏆 Достижение!</div><div><strong>${ach.name}</strong></div><div>${ach.description}</div></div>`;
+    document.body.appendChild(notif);
+    setTimeout(() => notif.classList.add("show"), 100);
+    setTimeout(() => { notif.classList.remove("show"); setTimeout(() => notif.remove(), 500); }, 4000);
 }
 
 function renderAchievements() {
-    const achievementsPanel = document.getElementById("achievementsPanel");
-    if (!achievementsPanel) return;
-    
-    let totalPracticeTasks = 0;
+    const panel = document.getElementById("achievementsPanel");
+    if (!panel) return;
+    let totalPractice = 0;
     for (let i = 0; i < levelsData.length; i++) {
         const comp = userProgress.completedTests[i] || {};
-        if (comp.practiceTasks) {
-            totalPracticeTasks += Object.values(comp.practiceTasks).filter(v => v === true).length;
-        }
+        if (comp.practiceTasks) totalPractice += Object.values(comp.practiceTasks).filter(v => v).length;
     }
-    
-    let html = `<div class="achievements-grid">`;
-    for (const ach of achievements) {
-        const isEarned = earnedAchievements.includes(ach.id);
-        let progressText = "";
-        
-        if (ach.requirement.type === "practice_count" && !isEarned) {
-            progressText = `<div class="achievement-progress">📊 ${totalPracticeTasks}/${ach.requirement.count}</div>`;
-        }
-        
-        html += `
-            <div class="achievement-card ${isEarned ? 'earned' : 'locked'}">
-                <div class="achievement-icon">${ach.icon}</div>
-                <div class="achievement-name">${ach.name}</div>
-                <div class="achievement-desc">${ach.description}</div>
-                ${progressText}
-                ${!isEarned ? '<div class="achievement-lock">🔒</div>' : '<div class="achievement-check">✅</div>'}
-            </div>
-        `;
-    }
-    html += `</div>`;
-    achievementsPanel.innerHTML = html;
+    panel.innerHTML = `<div class="achievements-grid">` + achievements.map(ach => {
+        const earned = earnedAchievements.includes(ach.id);
+        return `<div class="achievement-card ${earned ? 'earned' : 'locked'}">
+            <div class="achievement-icon">${ach.icon}</div>
+            <div class="achievement-name">${ach.name}</div>
+            <div class="achievement-desc">${ach.description}</div>
+            ${ach.req.type === "practice_count" && !earned ? `<div class="achievement-progress">${totalPractice}/${ach.req.count}</div>` : ''}
+            ${earned ? '<div class="achievement-check">✅</div>' : '<div class="achievement-lock">🔒</div>'}
+        </div>`;
+    }).join('') + `</div>`;
 }
 
 // ==================== СОСТОЯНИЕ ИГРЫ ====================
-let userProgress = JSON.parse(localStorage.getItem("graphGameProgress")) || { 
-    stars: {}, 
-    completedTests: {},
-    exp: 0,
-    unlockedLevels: 1
-};
+let userProgress = JSON.parse(localStorage.getItem("graphGameProgress")) || { stars: {}, completedTests: {}, exp: 0, unlockedLevels: 1 };
 
 function initProgress() {
     for (let i = 0; i < levelsData.length; i++) {
         if (userProgress.stars[i] === undefined) userProgress.stars[i] = 0;
-        if (!userProgress.completedTests[i]) userProgress.completedTests[i] = { 
-            test: false, 
-            practice: false, 
-            theoryViewed: false,
-            practiceTasks: {}
-        };
-        if (!userProgress.completedTests[i].practiceTasks) {
-            userProgress.completedTests[i].practiceTasks = {};
-        }
+        if (!userProgress.completedTests[i]) userProgress.completedTests[i] = { test: false, practice: false, theoryViewed: false, practiceTasks: {} };
         for (let t = 0; t < (practiceTasks[i]?.length || 0); t++) {
-            if (userProgress.completedTests[i].practiceTasks[t] === undefined) {
-                userProgress.completedTests[i].practiceTasks[t] = false;
-            }
+            if (userProgress.completedTests[i].practiceTasks[t] === undefined) userProgress.completedTests[i].practiceTasks[t] = false;
         }
     }
     if (userProgress.unlockedLevels === undefined) userProgress.unlockedLevels = 1;
@@ -608,7 +499,6 @@ initProgress();
 let currentLevel = 0;
 let currentTab = 'theory';
 
-// DOM элементы
 const levelsListDiv = document.getElementById("levelsList");
 const theoryTabDiv = document.getElementById("theoryTab");
 const testTabDiv = document.getElementById("testTab");
@@ -621,17 +511,11 @@ const expValueSpan = document.getElementById("expValue");
 const expNextSpan = document.getElementById("expNext");
 const expBarFill = document.getElementById("expBarFill");
 
-function getExpForNextLevel() {
-    let unlocked = Math.max(1, userProgress.unlockedLevels);
-    return 100 + 50 * (unlocked - 1);
-}
-
 function updateExpUI() {
     expValueSpan.textContent = userProgress.exp;
-    const expNeeded = getExpForNextLevel();
-    expNextSpan.textContent = expNeeded;
-    const percent = Math.min(100, (userProgress.exp / expNeeded) * 100);
-    expBarFill.style.width = `${percent}%`;
+    const needed = 100 + 50 * (Math.max(1, userProgress.unlockedLevels) - 1);
+    expNextSpan.textContent = needed;
+    expBarFill.style.width = `${Math.min(100, (userProgress.exp / needed) * 100)}%`;
 }
 
 function addExp(amount) {
@@ -645,9 +529,8 @@ function addExp(amount) {
 function checkLevelUnlocks() {
     let newUnlocked = userProgress.unlockedLevels;
     for (let i = userProgress.unlockedLevels; i < levelsData.length; i++) {
-        if (userProgress.exp >= levelsData[i].requiredExp) {
-            newUnlocked = i + 1;
-        } else break;
+        if (userProgress.exp >= levelsData[i].requiredExp) newUnlocked = i + 1;
+        else break;
     }
     if (newUnlocked > userProgress.unlockedLevels) {
         userProgress.unlockedLevels = newUnlocked;
@@ -660,7 +543,6 @@ function checkLevelUnlocks() {
 
 function recalcStars(levelIdx) {
     const comp = userProgress.completedTests[levelIdx];
-    if (!comp) return;
     let stars = (comp.theoryViewed ? 1 : 0) + (comp.test ? 1 : 0) + (comp.practice ? 1 : 0);
     userProgress.stars[levelIdx] = Math.min(stars, 3);
     localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
@@ -676,22 +558,9 @@ function updateHeaderInfo() {
 
 function updateTabIconsStatus(levelIdx) {
     const comp = userProgress.completedTests[levelIdx] || {};
-    const theoryBtn = document.getElementById("tabTheory");
-    const testBtn = document.getElementById("tabTest");
-    const practiceBtn = document.getElementById("tabPractice");
-    
-    if (theoryBtn) {
-        if (comp.theoryViewed) theoryBtn.classList.add("completed-theory");
-        else theoryBtn.classList.remove("completed-theory");
-    }
-    if (testBtn) {
-        if (comp.test) testBtn.classList.add("completed-test");
-        else testBtn.classList.remove("completed-test");
-    }
-    if (practiceBtn) {
-        if (comp.practice) practiceBtn.classList.add("completed-practice");
-        else practiceBtn.classList.remove("completed-practice");
-    }
+    document.getElementById("tabTheory")?.classList.toggle("completed-theory", comp.theoryViewed);
+    document.getElementById("tabTest")?.classList.toggle("completed-test", comp.test);
+    document.getElementById("tabPractice")?.classList.toggle("completed-practice", comp.practice);
 }
 
 function updateBlockProgress() {
@@ -722,169 +591,86 @@ function updateTotalProgress() {
 function renderSidebar() {
     levelsListDiv.innerHTML = "";
     for (let idx = 0; idx < levelsData.length; idx++) {
-        const level = levelsData[idx];
         const isUnlocked = idx < userProgress.unlockedLevels;
         const comp = userProgress.completedTests[idx] || {};
         const isComplete = comp.theoryViewed && comp.test && comp.practice;
-        
         const btn = document.createElement("button");
         btn.className = `level-btn ${currentLevel === idx ? "active" : ""} ${!isUnlocked ? "locked" : ""}`;
-        
-        btn.innerHTML = `
-            <div class="level-number ${isComplete ? "completed" : ""} ${!isUnlocked ? "locked" : ""}">${idx + 1}</div>
-            <div class="level-name">${level.name}</div>
-            ${!isUnlocked ? '<span class="lock-icon">🔒</span>' : ''}
-        `;
-        
-        if (isUnlocked) {
-            btn.addEventListener("click", () => {
-                currentLevel = idx;
-                renderSidebar();
-                renderAllTabs();
-                updateHeaderInfo();
-                updateBlockProgress();
-                updateTabIconsStatus(currentLevel);
-                document.querySelector(`.game-tab-btn[data-tab="${currentTab}"]`)?.click();
-            });
-        }
-        
+        btn.innerHTML = `<div class="level-number ${isComplete ? "completed" : ""}">${idx + 1}</div><div class="level-name">${levelsData[idx].name}</div>${!isUnlocked ? '<span class="lock-icon">🔒</span>' : ''}`;
+        if (isUnlocked) btn.addEventListener("click", () => { currentLevel = idx; renderSidebar(); renderAllTabs(); updateHeaderInfo(); updateBlockProgress(); document.querySelector(`.game-tab-btn[data-tab="${currentTab}"]`)?.click(); });
         levelsListDiv.appendChild(btn);
     }
     updateTotalProgress();
 }
 
-// ==================== ФУНКЦИИ ДЛЯ ГРАФИКОВ ====================
+// ==================== ГРАФИКИ ====================
 const axesPlugin = {
     id: 'axesLines',
     afterDraw(chart) {
         const { ctx, chartArea, scales } = chart;
-        const xAxis = scales.x;
-        const yAxis = scales.y;
-        
         ctx.save();
         ctx.beginPath();
         ctx.strokeStyle = '#ff6666';
         ctx.lineWidth = 2;
-        
-        const xZero = xAxis.getPixelForValue(0);
-        if (xZero >= chartArea.left && xZero <= chartArea.right) {
-            ctx.moveTo(xZero, chartArea.top);
-            ctx.lineTo(xZero, chartArea.bottom);
-            ctx.stroke();
-        }
-        
-        const yZero = yAxis.getPixelForValue(0);
-        if (yZero >= chartArea.top && yZero <= chartArea.bottom) {
-            ctx.moveTo(chartArea.left, yZero);
-            ctx.lineTo(chartArea.right, yZero);
-            ctx.stroke();
-        }
-        
+        const xZero = scales.x.getPixelForValue(0);
+        if (xZero >= chartArea.left && xZero <= chartArea.right) { ctx.moveTo(xZero, chartArea.top); ctx.lineTo(xZero, chartArea.bottom); ctx.stroke(); }
+        const yZero = scales.y.getPixelForValue(0);
+        if (yZero >= chartArea.top && yZero <= chartArea.bottom) { ctx.moveTo(chartArea.left, yZero); ctx.lineTo(chartArea.right, yZero); ctx.stroke(); }
         ctx.restore();
     }
 };
-
 Chart.register(axesPlugin);
 
-function evaluateFunction(funcStr, x) {
-    const fn = new Function('x', 'return ' + funcStr);
-    return fn(x);
+function evaluateFunction(funcStr, x) { return new Function('x', 'return ' + funcStr)(x); }
+
+function drawGraph(canvas, funcStr, color = '#ffa500', label = 'График') {
+    if (!canvas) return;
+    if (canvas.chart) { try { canvas.chart.destroy(); } catch(e) {} }
+    const points = [];
+    for (let x = -9; x <= 9; x += 0.15) {
+        try {
+            let y = evaluateFunction(funcStr, x);
+            if (typeof y === 'number' && isFinite(y) && Math.abs(y) < 100) points.push({ x, y });
+        } catch(e) {}
+    }
+    if (points.length < 2) return;
+    canvas.chart = new Chart(canvas, {
+        type: 'scatter',
+        data: { datasets: [{ label: label, data: points, borderColor: color, backgroundColor: 'transparent', borderWidth: 2.5, pointRadius: 0, showLine: true, tension: 0.3 }] },
+        options: { responsive: true, maintainAspectRatio: true, animation: false, plugins: { legend: { labels: { color: '#ffd966' } }, tooltip: { callbacks: { label: (ctx) => `(${ctx.parsed.x.toFixed(2)}, ${ctx.parsed.y.toFixed(2)})` } } }, scales: { x: { min: -9, max: 9, grid: { color: (ctx) => Math.abs(ctx.tick.value) < 0.001 ? '#ff6666' : '#3a4a55' }, ticks: { color: '#ccc', stepSize: 1 } }, y: { min: -9, max: 9, grid: { color: (ctx) => Math.abs(ctx.tick.value) < 0.001 ? '#ff6666' : '#3a4a55' }, ticks: { color: '#ccc', stepSize: 1 } } } }
+    });
 }
 
-function drawGraph(canvas, funcStr, xMin = -9, xMax = 9, yMin = -9, yMax = 9, color = '#ffa500', label = 'График') {
-    if (!canvas) return null;
+// ==================== ПЛАВНОЕ РИСОВАНИЕ КРИВЫХ (CATMULL-ROM СПЛАЙН) ====================
+function getCatmullRomPoints(points) {
+    if (points.length < 2) return points;
+    const result = [];
+    const sorted = [...points].sort((a, b) => a.x - b.x);
     
-    if (canvas.chart) {
-        try { canvas.chart.destroy(); } catch(e) {}
-        canvas.chart = null;
+    function interpolate(p0, p1, p2, p3, t) {
+        const t2 = t * t;
+        const t3 = t2 * t;
+        const x = 0.5 * ((2 * p1.x) + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3);
+        const y = 0.5 * ((2 * p1.y) + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3);
+        return { x, y };
     }
     
-    try {
-        const points = [];
-        const step = 0.15;
-        
-        for (let x = xMin; x <= xMax; x += step) {
-            let y;
-            try {
-                if (funcStr.includes('sqrt') && x < 0) continue;
-                y = evaluateFunction(funcStr, x);
-            } catch(e) {
-                continue;
-            }
-            
-            if (typeof y === 'number' && isFinite(y) && !isNaN(y) && Math.abs(y) < 100) {
-                points.push({ x, y });
-            }
+    result.push(sorted[0]);
+    for (let i = 0; i < sorted.length - 1; i++) {
+        const p0 = sorted[Math.max(0, i - 1)];
+        const p1 = sorted[i];
+        const p2 = sorted[i + 1];
+        const p3 = sorted[Math.min(sorted.length - 1, i + 2)];
+        const steps = 30;
+        for (let s = 1; s <= steps; s++) {
+            const t = s / steps;
+            result.push(interpolate(p0, p1, p2, p3, t));
         }
-        
-        if (points.length < 2) return null;
-        
-        const chart = new Chart(canvas, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: label,
-                    data: points,
-                    borderColor: color,
-                    backgroundColor: 'transparent',
-                    borderWidth: 2.5,
-                    pointRadius: 0,
-                    pointHoverRadius: 3,
-                    showLine: true,
-                    tension: 0.1,
-                    order: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                animation: false,
-                plugins: {
-                    legend: { 
-                        labels: { color: '#ffd966', font: { size: 11 } },
-                        position: 'top'
-                    },
-                    tooltip: { 
-                        callbacks: { 
-                            label: (ctx) => {
-                                if (ctx.parsed.x === undefined || ctx.parsed.y === undefined) return '';
-                                return `(${ctx.parsed.x.toFixed(2)}, ${ctx.parsed.y.toFixed(2)})`;
-                            }
-                        } 
-                    }
-                },
-                scales: {
-                    x: { 
-                        title: { display: true, text: 'x', color: '#ffd966' }, 
-                        min: xMin, max: xMax,
-                        grid: { 
-                            color: (ctx) => Math.abs(ctx.tick.value) < 0.001 ? '#ff6666' : '#3a4a55',
-                            lineWidth: 1
-                        },
-                        ticks: { color: '#ccc', stepSize: 2, callback: (v) => Math.abs(v) < 0.001 ? "0" : v }
-                    },
-                    y: { 
-                        title: { display: true, text: 'y', color: '#ffd966' }, 
-                        min: yMin, max: yMax,
-                        grid: { 
-                            color: (ctx) => Math.abs(ctx.tick.value) < 0.001 ? '#ff6666' : '#3a4a55',
-                            lineWidth: 1
-                        },
-                        ticks: { color: '#ccc', stepSize: 2, callback: (v) => Math.abs(v) < 0.001 ? "0" : v }
-                    }
-                }
-            }
-        });
-        
-        canvas.chart = chart;
-        return chart;
-    } catch(e) { 
-        console.warn("Ошибка графика", funcStr, e); 
-        return null; 
     }
+    return result;
 }
 
-// ==================== РЕНДЕР ТЕОРИИ ====================
+// ==================== ТЕОРИЯ ====================
 function markTheoryViewed() {
     const comp = userProgress.completedTests[currentLevel];
     if (!comp.theoryViewed) {
@@ -894,7 +680,6 @@ function markTheoryViewed() {
         recalcStars(currentLevel);
         updateBlockProgress();
         renderTheory();
-        checkAchievements();
     }
 }
 
@@ -903,72 +688,50 @@ function renderTheory() {
     const comp = userProgress.completedTests[currentLevel] || {};
     const completedCount = (comp.theoryViewed ? 1 : 0) + (comp.test ? 1 : 0) + (comp.practice ? 1 : 0);
     const percent = Math.floor(completedCount / 3 * 100);
-    
-    theoryTabDiv.innerHTML = `<div class="block-card"><h3>📖 ${level.name}<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3><div class="theory-content">${level.theory}</div><button id="markTheoryBtn" class="check-practice" style="background:#2ecc71;margin-top:10px;border:none;padding:8px 20px;border-radius:25px;font-weight:bold;cursor:pointer;color:white;" ${comp.theoryViewed ? "disabled style='opacity:0.6'" : ""}>${comp.theoryViewed ? "✅ Теория изучена! (+" + level.expReward.theory + " опыта)" : "✅ Отметить теорию (+" + level.expReward.theory + " опыта)"}</button></div>`;
-    
+    theoryTabDiv.innerHTML = `<div class="block-card"><h3>📖 ${level.name}<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3><div class="theory-content">${level.theory}</div><button id="markTheoryBtn" style="background:#2ecc71;margin-top:10px;border:none;padding:8px 20px;border-radius:25px;font-weight:bold;cursor:pointer;color:white;" ${comp.theoryViewed ? "disabled style='opacity:0.6'" : ""}>${comp.theoryViewed ? "✅ Теория изучена! (+" + level.expReward.theory + " опыта)" : "✅ Отметить теорию (+" + level.expReward.theory + " опыта)"}</button></div>`;
     setTimeout(() => {
         theoryTabDiv.querySelectorAll('.example-box').forEach(box => {
             const funcStr = box.getAttribute('data-example-func');
             const canvas = box.querySelector('.example-canvas');
-            if (funcStr && canvas) {
-                drawGraph(canvas, funcStr, -9, 9, -9, 9, '#ffa500', 'График функции');
-            }
+            if (funcStr && canvas) drawGraph(canvas, funcStr, '#ffa500', 'График');
         });
     }, 100);
-    
     document.getElementById("markTheoryBtn")?.addEventListener("click", () => { markTheoryViewed(); renderTheory(); });
     if (window.MathJax) MathJax.typesetPromise();
 }
 
-// ==================== РЕНДЕР ТЕСТА ====================
-function shuffleArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
+// ==================== ТЕСТ ====================
+function shuffleArray(arr) { for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
 
 function renderTest() {
     const level = levelsData[currentLevel];
     const comp = userProgress.completedTests[currentLevel] || {};
     const completedCount = (comp.theoryViewed ? 1 : 0) + (comp.test ? 1 : 0) + (comp.practice ? 1 : 0);
     const percent = Math.floor(completedCount / 3 * 100);
-    const icons = ["🤔", "📐", "🔍", "🎯", "⭐", "📊", "🧮", "💡", "📈", "🎲"];
     
-    const shuffledQuestions = level.testQuestions.map((q, idx) => {
-        const optionsWithIndices = q.options.map((opt, optIdx) => ({ text: opt, originalIndex: optIdx }));
-        const shuffledOptions = shuffleArray([...optionsWithIndices]);
-        const newCorrectIndex = shuffledOptions.findIndex(opt => opt.originalIndex === q.correct);
-        return {
-            text: q.text,
-            options: shuffledOptions.map(opt => opt.text),
-            correct: newCorrectIndex,
-            explanation: q.explanation,
-            originalIndex: idx
-        };
+    const shuffled = level.testQuestions.map((q, idx) => {
+        const opts = shuffleArray([...q.options]);
+        const newCorrect = opts.indexOf(q.options[q.correct]);
+        return { text: q.text, options: opts, correct: newCorrect, explanation: q.explanation, idx: idx };
     });
     
-    let html = `<div class="block-card"><h3>📝 Проверь свои знания! ✨<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3><div class="test-container">`;
-    
-    shuffledQuestions.forEach((q, i) => {
-        html += `<div class="question-item"><div class="question-text"><span class="question-icon">${icons[i % icons.length]}</span>${i+1}. ${q.text}</div><div class="options">${q.options.map((o, oi) => `<label class="option"><input type="radio" name="q${currentLevel}_${i}" value="${oi}"><span>${String.fromCharCode(65+oi)}. ${o}</span></label>`).join('')}</div><div class="test-feedback" id="fb_${currentLevel}_${i}"></div></div>`;
+    let html = `<div class="block-card"><h3>📝 Проверь знания!<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3><div class="test-container">`;
+    shuffled.forEach((q, i) => {
+        html += `<div class="question-item"><div class="question-text">${i+1}. ${q.text}</div><div class="options">${q.options.map((o, oi) => `<label class="option"><input type="radio" name="q${currentLevel}_${i}" value="${oi}"><span>${String.fromCharCode(65+oi)}. ${o}</span></label>`).join('')}</div><div class="test-feedback" id="fb_${i}"></div></div>`;
     });
-    
-    html += `<button id="submitTestBtn" class="submit-test-btn">✅ Проверить ответы! (+${level.expReward.test} опыта)</button>${comp.test ? '<div class="test-success">🎉 Отлично! Ты прошёл тест! 🎉<br>⭐ Получена звезда за тесты! ⭐</div>' : ''}</div></div>`;
+    html += `<button id="submitTestBtn" class="submit-test-btn">✅ Проверить! (+${level.expReward.test} опыта)</button>${comp.test ? '<div class="test-success">🎉 Тест пройден! ⭐</div>' : ''}</div></div>`;
     testTabDiv.innerHTML = html;
     
     document.getElementById("submitTestBtn")?.addEventListener("click", () => {
         let allCorrect = true;
-        shuffledQuestions.forEach((q, i) => {
+        shuffled.forEach((q, i) => {
             const selected = document.querySelector(`input[name="q${currentLevel}_${i}"]:checked`);
-            const fb = document.getElementById(`fb_${currentLevel}_${i}`);
+            const fb = document.getElementById(`fb_${i}`);
             if (selected && parseInt(selected.value) === q.correct) {
-                fb.innerHTML = `<span class="feedback-icon">✅</span> Верно! ${q.explanation}`;
+                fb.innerHTML = `✅ Верно! ${q.explanation}`;
                 fb.className = "test-feedback correct";
             } else {
-                const correctLetter = String.fromCharCode(65 + q.correct);
-                fb.innerHTML = `<span class="feedback-icon">❌</span> Неправильно. ${q.explanation}<br>📖 Правильный ответ: <strong>${correctLetter}. ${q.options[q.correct]}</strong>`;
+                fb.innerHTML = `❌ Неправильно. ${q.explanation}<br>📖 Правильный ответ: ${String.fromCharCode(65 + q.correct)}. ${q.options[q.correct]}`;
                 fb.className = "test-feedback wrong";
                 allCorrect = false;
             }
@@ -980,121 +743,263 @@ function renderTest() {
             recalcStars(currentLevel);
             renderTest();
             updateBlockProgress();
-            checkAchievements();
         }
     });
 }
 
-// ==================== РЕНДЕР ПРАКТИКИ ====================
-function checkPracticeAnswer(levelIdx, taskIndex) {
-    const tasks = practiceTasks[levelIdx] || [];
-    const task = tasks[taskIndex];
-    const input = document.getElementById(`practiceInput_${levelIdx}_${taskIndex}`);
-    const feedback = document.getElementById(`practiceFeedback_${levelIdx}_${taskIndex}`);
-    const canvas = document.getElementById(`practiceCanvas_${levelIdx}_${taskIndex}`);
+// ==================== ПРАКТИКА (С ПЛАВНЫМИ КРИВЫМИ И РАЗДЕЛЬНЫМИ ВЕТВЯМИ ДЛЯ ГИПЕРБОЛЫ) ====================
+function initPracticeCanvas(canvas, task, onPointsUpdate) {
+    if (!canvas) return null;
     
-    if (!input || !task) return;
+    // Адаптивный размер canvas под экран
+    let size = Math.min(window.innerWidth - 40, 600);
+    if (window.innerWidth > 768) size = 600;
+    if (window.innerWidth > 1024) size = 700;
     
-    let userFunc = input.value.trim();
-    if (!userFunc) {
-        if (feedback) feedback.innerHTML = "❌ Введите функцию!";
-        if (feedback) feedback.className = "practice-feedback wrong";
-        return;
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    let points = [];
+    const xMin = -9, xMax = 9, yMin = -9, yMax = 9;
+    const w = canvas.width, h = canvas.height;
+    
+    function toCanvas(x, y) { 
+        return { x: ((x - xMin) / (xMax - xMin)) * w, y: h - ((y - yMin) / (yMax - yMin)) * h }; 
+    }
+    function toMath(px, py) { 
+        return { x: Math.round((xMin + (px / w) * (xMax - xMin)) * 2) / 2, y: Math.round((yMin + ((h - py) / h) * (yMax - yMin)) * 2) / 2 }; 
     }
     
-    try {
-        const targetFunc = task.targetFunc;
-        let correct = true;
+    function draw() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#0a1217';
+        ctx.fillRect(0, 0, w, h);
         
-        for (let x = -8; x <= 8; x += 0.5) {
-            if (targetFunc.includes('sqrt') && x < 0) continue;
-            if (userFunc.includes('sqrt') && x < 0) continue;
-            
-            let targetY, userY;
-            try {
-                targetY = evaluateFunction(targetFunc, x);
-                userY = evaluateFunction(userFunc, x);
-            } catch(e) {
-                correct = false;
-                break;
+        // Тонкая сетка (каждая единица)
+        ctx.beginPath();
+        ctx.strokeStyle = '#2a3a45';
+        ctx.lineWidth = 0.8;
+        for (let x = -9; x <= 9; x += 1) {
+            const { x: px } = toCanvas(x, 0);
+            ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke();
+        }
+        for (let y = -9; y <= 9; y += 1) {
+            const { y: py } = toCanvas(0, y);
+            ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+        }
+        
+        // Жирные линии через каждые 2 единицы
+        ctx.beginPath();
+        ctx.strokeStyle = '#5a8a9a';
+        ctx.lineWidth = 1.5;
+        for (let x = -8; x <= 8; x += 2) {
+            const { x: px } = toCanvas(x, 0);
+            ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, h); ctx.stroke();
+        }
+        for (let y = -8; y <= 8; y += 2) {
+            const { y: py } = toCanvas(0, y);
+            ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(w, py); ctx.stroke();
+        }
+        
+        // Оси координат
+        ctx.beginPath();
+        ctx.strokeStyle = '#ff6666';
+        ctx.lineWidth = 3;
+        const { y: yZero } = toCanvas(0, 0);
+        ctx.moveTo(0, yZero); ctx.lineTo(w, yZero); ctx.stroke();
+        const { x: xZero } = toCanvas(0, 0);
+        ctx.moveTo(xZero, 0); ctx.lineTo(xZero, h); ctx.stroke();
+        
+        // Стрелки
+        ctx.fillStyle = '#ff6666';
+        const arrowX = toCanvas(8.7, 0);
+        ctx.beginPath(); ctx.moveTo(arrowX.x - 12, arrowX.y - 6); ctx.lineTo(arrowX.x, arrowX.y); ctx.lineTo(arrowX.x - 12, arrowX.y + 6); ctx.fill();
+        const arrowY = toCanvas(0, 8.7);
+        ctx.beginPath(); ctx.moveTo(arrowY.x - 6, arrowY.y + 12); ctx.lineTo(arrowY.x, arrowY.y); ctx.lineTo(arrowY.x + 6, arrowY.y + 12); ctx.fill();
+        
+        // Подписи осей
+        ctx.fillStyle = '#ffd966';
+        let fontSize = Math.max(14, Math.min(24, w / 25));
+        ctx.font = `bold ${fontSize}px "Segoe UI", monospace`;
+        ctx.fillText('x', w - fontSize - 5, yZero - fontSize/2);
+        ctx.fillText('y', xZero + fontSize/2 + 3, fontSize + 5);
+        
+        // Подписи делений
+        ctx.fillStyle = '#ffd966';
+        let labelFontSize = Math.max(12, Math.min(20, w / 30));
+        ctx.font = `bold ${labelFontSize}px "Segoe UI", monospace`;
+        ctx.textAlign = 'center';
+        for (let x = -8; x <= 8; x += 2) {
+            if (x !== 0) {
+                const { x: px, y: py } = toCanvas(x, 0);
+                ctx.fillText(x, px, py + labelFontSize + 4);
             }
-            
-            if (isNaN(targetY) && isNaN(userY)) continue;
-            if (Math.abs(targetY - userY) > 0.3) {
-                correct = false;
-                break;
+        }
+        ctx.textAlign = 'right';
+        for (let y = -8; y <= 8; y += 2) {
+            if (y !== 0) {
+                const { x: px, y: py } = toCanvas(0, y);
+                ctx.fillText(y, px - 6, py + labelFontSize/2);
             }
         }
         
-        if (correct) {
-            if (feedback) {
-                feedback.innerHTML = "✅ Правильно! Функция совпадает с целевым графиком! Теперь можно сдать задание.";
-                feedback.className = "practice-feedback correct";
+        // Нуль
+        ctx.fillStyle = '#ff8888';
+        ctx.font = `bold ${fontSize}px "Segoe UI", monospace`;
+        ctx.textAlign = 'center';
+        const { x: x0, y: y0 } = toCanvas(0, 0);
+        ctx.fillText('0', x0, y0 + labelFontSize + 5);
+        
+        // Рисуем плавные линии через точки
+        if (points.length >= 2) {
+            const sorted = [...points].sort((a, b) => a.x - b.x);
+            
+            if (task.type === 'hyperbola') {
+                const leftPoints = sorted.filter(p => p.x < 0);
+                const rightPoints = sorted.filter(p => p.x > 0);
+                
+                if (leftPoints.length >= 2) {
+                    const smoothLeft = getCatmullRomPoints(leftPoints);
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#ffa500';
+                    ctx.lineWidth = 4;
+                    ctx.lineJoin = 'round';
+                    ctx.lineCap = 'round';
+                    const first = toCanvas(smoothLeft[0].x, smoothLeft[0].y);
+                    ctx.moveTo(first.x, first.y);
+                    for (let i = 1; i < smoothLeft.length; i++) {
+                        const p = toCanvas(smoothLeft[i].x, smoothLeft[i].y);
+                        ctx.lineTo(p.x, p.y);
+                    }
+                    ctx.stroke();
+                }
+                
+                if (rightPoints.length >= 2) {
+                    const smoothRight = getCatmullRomPoints(rightPoints);
+                    ctx.beginPath();
+                    ctx.strokeStyle = '#ffa500';
+                    ctx.lineWidth = 4;
+                    ctx.lineJoin = 'round';
+                    ctx.lineCap = 'round';
+                    const first = toCanvas(smoothRight[0].x, smoothRight[0].y);
+                    ctx.moveTo(first.x, first.y);
+                    for (let i = 1; i < smoothRight.length; i++) {
+                        const p = toCanvas(smoothRight[i].x, smoothRight[i].y);
+                        ctx.lineTo(p.x, p.y);
+                    }
+                    ctx.stroke();
+                }
+            } 
+            else if (task.type === 'curve') {
+                const smoothPoints = getCatmullRomPoints(sorted);
+                ctx.beginPath();
+                ctx.strokeStyle = '#ffa500';
+                ctx.lineWidth = 4;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                const first = toCanvas(smoothPoints[0].x, smoothPoints[0].y);
+                ctx.moveTo(first.x, first.y);
+                for (let i = 1; i < smoothPoints.length; i++) {
+                    const p = toCanvas(smoothPoints[i].x, smoothPoints[i].y);
+                    ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
             }
-            if (canvas && input.value.trim()) {
-                drawGraph(canvas, userFunc, -9, 9, -9, 9, '#ffa500', 'Ваш график');
+            else {
+                ctx.beginPath();
+                ctx.strokeStyle = '#ffa500';
+                ctx.lineWidth = 4;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                const first = toCanvas(sorted[0].x, sorted[0].y);
+                ctx.moveTo(first.x, first.y);
+                for (let i = 1; i < sorted.length; i++) {
+                    const p = toCanvas(sorted[i].x, sorted[i].y);
+                    ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
             }
+        }
+        
+        // Рисуем точки
+        let pointRadius = Math.max(8, Math.min(14, w / 45));
+        points.forEach(p => {
+            const { x: px, y: py } = toCanvas(p.x, p.y);
+            ctx.beginPath(); ctx.fillStyle = '#ffa500'; ctx.arc(px, py, pointRadius, 0, 2 * Math.PI); ctx.fill();
+            ctx.beginPath(); ctx.fillStyle = '#ffffff'; ctx.arc(px, py, pointRadius/2, 0, 2 * Math.PI); ctx.fill();
+            ctx.fillStyle = '#ffd966'; 
+            ctx.font = `bold ${pointRadius}px monospace`; 
+            ctx.textAlign = 'left';
+            ctx.fillText(`(${p.x};${p.y})`, px + pointRadius + 4, py - pointRadius/2);
+        });
+    }
+    
+    function addPoint(x, y) {
+        const px = Math.round(x * 2) / 2;
+        const py = Math.round(y * 2) / 2;
+        if (px < -9 || px > 9 || py < -9 || py > 9) return;
+        if (task.type === 'hyperbola' && px === 0) return;
+        if (!points.some(p => p.x === px && p.y === py)) {
+            points.push({ x: px, y: py });
+            draw();
+            if (onPointsUpdate) onPointsUpdate(points);
+        }
+    }
+    
+    function removeLast() { if (points.length) { points.pop(); draw(); if (onPointsUpdate) onPointsUpdate(points); } }
+    function clearAll() { points = []; draw(); if (onPointsUpdate) onPointsUpdate(points); }
+    function getPoints() { return [...points]; }
+    
+    canvas.onclick = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        let clientX, clientY;
+        if (e.touches) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+            e.preventDefault();
         } else {
-            if (feedback) {
-                feedback.innerHTML = `❌ Неправильно. Попробуй ещё раз! Подсказка: ${task.hint}`;
-                feedback.className = "practice-feedback wrong";
-            }
-            if (canvas) {
-                drawGraph(canvas, task.targetFunc, -9, 9, -9, 9, '#6fbf6f', 'Целевой график');
-            }
+            clientX = e.clientX;
+            clientY = e.clientY;
         }
-    } catch(e) {
-        if (feedback) {
-            feedback.innerHTML = `❌ Ошибка в синтаксисе: ${e.message}`;
-            feedback.className = "practice-feedback wrong";
+        const canvasX = (clientX - rect.left) * scaleX;
+        const canvasY = (clientY - rect.top) * scaleY;
+        if (canvasX >= 0 && canvasX <= w && canvasY >= 0 && canvasY <= h) {
+            const { x, y } = toMath(canvasX, canvasY);
+            addPoint(x, y);
         }
-    }
+    };
+    
+    canvas.ontouchstart = canvas.onclick;
+    
+    draw();
+    return { removeLast, clearAll, getPoints, addPoint };
 }
 
-function submitPracticeTask(levelIdx, taskIndex) {
-    const tasks = practiceTasks[levelIdx] || [];
-    const comp = userProgress.completedTests[levelIdx];
+function checkPractice(points, formula, needPoints, type) {
+    if (!points || points.length < needPoints) return { ok: false, msg: `❌ Нужно ${needPoints} точек (сейчас ${points?.length || 0})` };
     
-    if (!comp.practiceTasks) comp.practiceTasks = {};
-    
-    if (comp.practiceTasks[taskIndex]) return;
-    
-    const feedback = document.getElementById(`practiceFeedback_${levelIdx}_${taskIndex}`);
-    const input = document.getElementById(`practiceInput_${levelIdx}_${taskIndex}`);
-    
-    if (!input || !input.value.trim()) {
-        if (feedback) {
-            feedback.innerHTML = "❌ Сначала введи функцию и проверь её!";
-            feedback.className = "practice-feedback wrong";
-        }
-        return;
+    if (type === 'hyperbola') {
+        const zeroPoint = points.find(p => p.x === 0);
+        if (zeroPoint) return { ok: false, msg: `❌ Точка (0;${zeroPoint.y}) не может лежать на гиперболе, так как x ≠ 0!` };
     }
     
-    if (!feedback || !feedback.classList.contains("correct")) {
-        feedback.innerHTML = "❌ Сначала проверь функцию (нажми 🔍 Проверить) и убедись, что она правильная!";
-        feedback.className = "practice-feedback wrong";
-        return;
+    let wrong = [];
+    for (const p of points) {
+        try {
+            let target = evaluateFunction(formula, p.x);
+            if (Math.abs(target - p.y) > 0.3) wrong.push(p);
+        } catch(e) { wrong.push(p); }
     }
+    if (wrong.length) return { ok: false, msg: `❌ Точки ${wrong.map(w => `(${w.x};${w.y})`).join(', ')} не на графике!` };
     
-    comp.practiceTasks[taskIndex] = true;
+    let hint = "";
+    if (type === "line") hint = " Прямая линия, для неё достаточно 2 точек.";
+    else if (type === "hyperbola") hint = " Гипербола состоит из двух отдельных плавных ветвей! Точки с x<0 и x>0 не соединяются между собой.";
+    else hint = " Плавная кривая! Чем больше точек, тем точнее график.";
     
-    let allCompleted = true;
-    for (let i = 0; i < tasks.length; i++) {
-        if (!comp.practiceTasks[i]) allCompleted = false;
-    }
-    
-    if (allCompleted && !comp.practice) {
-        comp.practice = true;
-        addExp(levelsData[levelIdx].expReward.practice);
-    }
-    
-    localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
-    recalcStars(levelIdx);
-    if (levelIdx === currentLevel) {
-        renderPractice();
-    }
-    updateBlockProgress();
-    checkAchievements();
+    return { ok: true, msg: `✅ Все точки лежат на графике!${hint}` };
 }
 
 function renderPractice() {
@@ -1104,157 +1009,126 @@ function renderPractice() {
     const completedCount = (comp.theoryViewed ? 1 : 0) + (comp.test ? 1 : 0) + (comp.practice ? 1 : 0);
     const percent = Math.floor(completedCount / 3 * 100);
     
-    let html = `<div class="block-card"><h3>🎮 Практика: угадай функцию!<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3>`;
-    html += `<p>📌 <strong>Задание:</strong> Перед тобой график некоторой функции (зелёная линия). Определи её формулу и введи в поле ввода. Твой график будет отображаться оранжевым цветом. Чтобы проверить себя, нажми «🔍 Проверить». После успешной проверки можно сдать задание.</p>`;
+    let html = `<div class="block-card"><h3>🎮 Практика: построй график!<div class="block-progress"><span>${completedCount}/3 заданий</span><div class="block-progress-bar"><div class="block-progress-fill" style="width: ${percent}%"></div></div></div></h3>`;
+    html += `<p>📌 <strong>Задание:</strong> Построй график функции, <strong class="highlight">кликая по координатной сетке</strong> для добавления точек. Точки автоматически соединятся плавной линией.</p>
+             <p>💡 <strong>Совет:</strong> Единичный отрезок = 1. Для гиперболы точки с x<0 и x>0 образуют две отдельные плавные ветви.</p>`;
     html += `<div class="practice-tasks-container">`;
     
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        const isCompleted = comp.practiceTasks?.[i] || false;
-        const canvasId = `practiceCanvas_${currentLevel}_${i}`;
-        const inputId = `practiceInput_${currentLevel}_${i}`;
-        const feedbackId = `practiceFeedback_${currentLevel}_${i}`;
-        
+        const isDone = comp.practiceTasks?.[i] || false;
         html += `
-            <div class="practice-task-item" data-task-index="${i}">
+            <div class="practice-task-item" data-task="${i}">
                 <div class="practice-task-header">
-                    <span class="practice-task-title">Задание ${i+1}</span>
-                    <span class="practice-task-status ${isCompleted ? 'completed' : ''}">${isCompleted ? '✅ Выполнено' : '⏳ Не выполнено'}</span>
+                    <span class="practice-task-title">📐 Задание ${i+1}</span>
+                    <span class="practice-task-status ${isDone ? 'completed' : ''}">${isDone ? '✅ Выполнено' : '⏳ Не выполнено'}</span>
+                </div>
+                <div class="practice-formula-display">
+                    <div class="formula-badge">🎯 Построй: <strong class="formula-highlight">${task.display}</strong></div>
                 </div>
                 <div class="practice-graph-container">
-                    <div class="target-graph-label">🎯 Определи формулу этого графика:</div>
-                    <canvas id="${canvasId}" width="500" height="400" style="width:100%; height:auto; max-width:500px; background:#0a1217; border-radius:10px;"></canvas>
+                    <canvas id="practiceCanvas_${i}" style="background:#0a1217; border-radius:10px; cursor:crosshair; border:3px solid #ffa500; max-width:100%; height:auto;"></canvas>
                 </div>
-                <div class="func-input-area">
-                    <input type="text" id="${inputId}" placeholder="Введи формулу функции (например: 2*x+1, x*x, Math.sqrt(x), Math.abs(x))" value="${isCompleted ? task.targetFunc : ''}" ${isCompleted ? 'disabled' : ''}>
-                    ${!isCompleted ? '<button class="check-answer-btn" data-level="' + currentLevel + '" data-task="' + i + '">🔍 Проверить</button>' : ''}
+                <div class="point-controls">
+                    <button class="undo-btn" data-task="${i}">↩️ Отменить точку</button>
+                    <button class="clear-btn" data-task="${i}">🗑️ Очистить всё</button>
                 </div>
-                <div id="${feedbackId}" class="practice-feedback"></div>
-                ${!isCompleted ? '<button class="submit-answer-btn" data-level-submit="' + currentLevel + '" data-task-submit="' + i + '">🏆 Сдать задание</button>' : ''}
+                <div id="practiceFeedback_${i}" class="practice-feedback"></div>
+                ${!isDone ? `
+                <div style="display:flex; gap:15px; margin-top:20px;">
+                    <button class="check-btn" data-task="${i}">🔍 Проверить график</button>
+                    <button class="submit-btn" data-task="${i}" disabled>🏆 Сдать задание</button>
+                </div>
+                ` : ''}
             </div>
         `;
     }
-    
     html += `</div>`;
-    if (comp.practice) {
-        html += `<div class="success-message" style="background:#2ecc71;padding:10px;border-radius:12px;text-align:center;margin-top:15px;">✔ Все задания практики выполнены! Молодец! 🌟</div>`;
-    }
+    if (comp.practice) html += `<div class="success-message">✔ Все задания выполнены! Молодец! 🌟</div>`;
     html += `</div>`;
     practiceTabDiv.innerHTML = html;
     
     setTimeout(() => {
         for (let i = 0; i < tasks.length; i++) {
-            const canvas = document.getElementById(`practiceCanvas_${currentLevel}_${i}`);
-            if (canvas) {
-                drawGraph(canvas, tasks[i].targetFunc, -9, 9, -9, 9, '#6fbf6f', 'Целевой график');
+            const task = tasks[i];
+            const isDone = comp.practiceTasks?.[i] || false;
+            const canvas = document.getElementById(`practiceCanvas_${i}`);
+            if (!canvas) continue;
+            
+            if (isDone) {
+                drawGraph(canvas, task.formula, '#6fbf6f', 'Правильный график');
+                continue;
             }
             
-            const checkBtn = document.querySelector(`.check-answer-btn[data-level="${currentLevel}"][data-task="${i}"]`);
-            if (checkBtn) {
-                checkBtn.removeEventListener('click', () => {});
-                checkBtn.addEventListener("click", () => checkPracticeAnswer(currentLevel, i));
-            }
+            let currentPoints = [];
+            let verified = false;
             
-            const submitBtn = document.querySelector(`.submit-answer-btn[data-level-submit="${currentLevel}"][data-task-submit="${i}"]`);
-            if (submitBtn) {
-                submitBtn.removeEventListener('click', () => {});
-                submitBtn.addEventListener("click", () => submitPracticeTask(currentLevel, i));
-            }
+            const manager = initPracticeCanvas(canvas, task, (pts) => {
+                currentPoints = pts;
+                verified = false;
+                const submitBtn = document.querySelector(`.submit-btn[data-task="${i}"]`);
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.5'; submitBtn.textContent = '🏆 Сначала проверь!'; }
+                const fb = document.getElementById(`practiceFeedback_${i}`);
+                if (fb) { fb.innerHTML = ''; fb.className = 'practice-feedback'; }
+            });
             
-            const input = document.getElementById(`practiceInput_${currentLevel}_${i}`);
-            if (input && !comp.practiceTasks?.[i]) {
-                input.removeEventListener('input', () => {});
-                input.addEventListener("input", () => {
-                    const canvas = document.getElementById(`practiceCanvas_${currentLevel}_${i}`);
-                    if (canvas && input.value.trim()) {
-                        let userFunc = input.value.trim();
-                        drawGraph(canvas, tasks[i].targetFunc, -9, 9, -9, 9, '#6fbf6f', 'Целевой график');
-                        setTimeout(() => {
-                            drawGraph(canvas, userFunc, -9, 9, -9, 9, '#ffa500', 'Ваш график');
-                        }, 50);
+            document.querySelector(`.undo-btn[data-task="${i}"]`)?.addEventListener('click', () => {
+                manager.removeLast();
+                verified = false;
+                const submitBtn = document.querySelector(`.submit-btn[data-task="${i}"]`);
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.5'; submitBtn.textContent = '🏆 Сначала проверь!'; }
+                document.getElementById(`practiceFeedback_${i}`).innerHTML = '';
+            });
+            
+            document.querySelector(`.clear-btn[data-task="${i}"]`)?.addEventListener('click', () => {
+                manager.clearAll();
+                verified = false;
+                const submitBtn = document.querySelector(`.submit-btn[data-task="${i}"]`);
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.5'; submitBtn.textContent = '🏆 Сначала проверь!'; }
+                document.getElementById(`practiceFeedback_${i}`).innerHTML = '';
+            });
+            
+            document.querySelector(`.check-btn[data-task="${i}"]`)?.addEventListener('click', () => {
+                const points = manager.getPoints();
+                const res = checkPractice(points, task.formula, task.needPoints, task.type);
+                const fb = document.getElementById(`practiceFeedback_${i}`);
+                fb.innerHTML = res.msg;
+                fb.className = res.ok ? 'practice-feedback correct' : 'practice-feedback wrong';
+                if (res.ok) {
+                    verified = true;
+                    const submitBtn = document.querySelector(`.submit-btn[data-task="${i}"]`);
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = '1'; submitBtn.textContent = '🏆 Сдать задание (+' + level.expReward.practice + ' опыта)'; }
+                }
+            });
+            
+            document.querySelector(`.submit-btn[data-task="${i}"]`)?.addEventListener('click', () => {
+                if (!verified) {
+                    document.getElementById(`practiceFeedback_${i}`).innerHTML = '❌ Сначала проверь график кнопкой "Проверить график"!';
+                    document.getElementById(`practiceFeedback_${i}`).className = 'practice-feedback wrong';
+                    return;
+                }
+                const compData = userProgress.completedTests[currentLevel];
+                if (!compData.practiceTasks[i]) {
+                    compData.practiceTasks[i] = true;
+                    let allDone = true;
+                    for (let j = 0; j < tasks.length; j++) if (!compData.practiceTasks[j]) allDone = false;
+                    if (allDone && !compData.practice) {
+                        compData.practice = true;
+                        addExp(level.expReward.practice);
                     }
-                });
-            }
+                    localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
+                    recalcStars(currentLevel);
+                    renderPractice();
+                    updateBlockProgress();
+                    checkAchievements();
+                }
+            });
         }
     }, 100);
 }
 
-// ==================== МОДАЛЬНОЕ ОКНО ДОСТИЖЕНИЙ ====================
-const modal = document.getElementById("achievementsModal");
-const showAchievementsBtn = document.getElementById("showAchievementsBtn");
-const modalClose = document.querySelector(".modal-close");
-
-function openAchievementsModal() {
-    renderAchievements();
-    if (modal) modal.style.display = "block";
-}
-
-function closeAchievementsModal() {
-    if (modal) modal.style.display = "none";
-}
-
-if (showAchievementsBtn) {
-    showAchievementsBtn.onclick = openAchievementsModal;
-}
-
-if (modalClose) {
-    modalClose.onclick = closeAchievementsModal;
-}
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        closeAchievementsModal();
-    }
-}
-
-// ==================== КНОПКИ СБРОСА СТАТИСТИКИ И ОТКРЫТИЯ ВСЕХ УРОВНЕЙ ====================
-function resetAllProgress() {
-    if (confirm("⚠️ ВНИМАНИЕ! Это действие удалит весь ваш прогресс: опыт, звёзды, пройденные тесты, практику и достижения. Останется открытым только первый уровень. Вы уверены?")) {
-        userProgress = { 
-            stars: {}, 
-            completedTests: {},
-            exp: 0,
-            unlockedLevels: 1
-        };
-        earnedAchievements = [];
-        localStorage.removeItem("graphGameAchievements");
-        initProgress();
-        currentLevel = 0;
-        updateExpUI();
-        renderSidebar();
-        renderAllTabs();
-        updateHeaderInfo();
-        updateBlockProgress();
-        updateTabIconsStatus(0);
-        renderAchievements();
-        alert("✅ Прогресс полностью сброшен! Открыт только первый уровень. Начинай игру заново.");
-    }
-}
-
-function unlockAllLevels() {
-    if (confirm("🔓 Открыть все уровни? Вы получите доступ ко всем 8 уровням, но ваш опыт и звёзды сохранятся.")) {
-        userProgress.unlockedLevels = levelsData.length;
-        localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
-        renderSidebar();
-        checkLevelUnlocks();
-        checkAchievements();
-        alert("✅ Все уровни открыты! Теперь ты можешь изучать любую тему.");
-    }
-}
-
-function addControlButtons() {
-    const resetBtn = document.getElementById("resetProgressBtn");
-    const unlockBtn = document.getElementById("unlockAllBtn");
-    
-    if (resetBtn) resetBtn.onclick = resetAllProgress;
-    if (unlockBtn) unlockBtn.onclick = unlockAllLevels;
-}
-
-function renderAllTabs() { 
-    renderTheory(); 
-    renderTest(); 
-    renderPractice(); 
-}
+// ==================== ОСТАЛЬНЫЕ ФУНКЦИИ ====================
+function renderAllTabs() { renderTheory(); renderTest(); renderPractice(); }
 
 function setupTabs() {
     document.querySelectorAll(".game-tab-btn").forEach(btn => {
@@ -1273,6 +1147,113 @@ function setupTabs() {
     document.querySelector('.game-tab-btn[data-tab="theory"]')?.click();
 }
 
+function resetAllProgress() {
+    if (confirm("⚠️ Удалить весь прогресс?")) {
+        userProgress = { stars: {}, completedTests: {}, exp: 0, unlockedLevels: 1 };
+        earnedAchievements = [];
+        localStorage.removeItem("graphGameAchievements");
+        initProgress();
+        currentLevel = 0;
+        updateExpUI();
+        renderSidebar();
+        renderAllTabs();
+        updateHeaderInfo();
+        updateBlockProgress();
+        updateTabIconsStatus(0);
+        renderAchievements();
+        alert("✅ Прогресс сброшен!");
+    }
+}
+
+function unlockAllLevels() {
+    if (confirm("🔓 Открыть все уровни?")) {
+        userProgress.unlockedLevels = levelsData.length;
+        localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
+        renderSidebar();
+        checkLevelUnlocks();
+        alert("✅ Все уровни открыты!");
+    }
+}
+
+// ==================== ОТЗЫВЫ ====================
+let reviews = JSON.parse(localStorage.getItem("grafMasterReviews")) || [];
+
+function renderReviews() {
+    const panel = document.getElementById("reviewsPanel");
+    if (!panel) return;
+    let avg = reviews.length ? (reviews.reduce((a, r) => a + r.rating, 0) / reviews.length).toFixed(1) : 0;
+    panel.innerHTML = `
+        <div class="review-form">
+            <h4>📝 Оставить отзыв</h4>
+            <div class="rating-input">${[5,4,3,2,1].map(v => `<input type="radio" name="rating" id="star${v}" value="${v}"><label for="star${v}">★</label>`).join('')}</div>
+            <input type="text" id="reviewAuthor" placeholder="Ваше имя" class="review-text-input">
+            <textarea id="reviewText" rows="3" placeholder="Ваш отзыв..." class="review-text-input"></textarea>
+            <button id="submitReview" class="submit-review-btn">📤 Отправить</button>
+        </div>
+        ${reviews.length ? `<div class="average-rating"><div class="rating-value">${avg}</div><div class="rating-stars">${'★'.repeat(Math.floor(avg))}${'☆'.repeat(5-Math.floor(avg))}</div><div class="rating-count">${reviews.length} отзывов</div></div>` : ''}
+        <div class="reviews-list">${reviews.length ? reviews.map(r => `<div class="review-item"><div class="review-header"><span class="review-author">${escapeHtml(r.author)}</span><div class="review-rating">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><span class="review-date">${r.date}</span></div><div class="review-text">${escapeHtml(r.text)}</div><button class="delete-review" data-id="${r.id}">🗑️ Удалить</button></div>`).join('') : '<div class="no-reviews">✨ Пока нет отзывов</div>'}</div>
+    `;
+    document.getElementById("submitReview")?.addEventListener("click", () => {
+        const rating = document.querySelector('input[name="rating"]:checked')?.value || 5;
+        const author = document.getElementById("reviewAuthor")?.value || "Аноним";
+        const text = document.getElementById("reviewText")?.value;
+        if (text) {
+            reviews.unshift({ id: Date.now(), author, rating: parseInt(rating), text, date: new Date().toLocaleString() });
+            localStorage.setItem("grafMasterReviews", JSON.stringify(reviews));
+            renderReviews();
+            document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
+            document.getElementById("reviewText").value = "";
+            alert("Спасибо за отзыв! 🌟");
+        } else alert("Напишите отзыв!");
+    });
+    document.querySelectorAll(".delete-review").forEach(btn => btn.addEventListener("click", () => { reviews = reviews.filter(r => r.id !== parseInt(btn.dataset.id)); localStorage.setItem("grafMasterReviews", JSON.stringify(reviews)); renderReviews(); }));
+}
+function escapeHtml(text) { const div = document.createElement('div'); div.textContent = text; return div.innerHTML; }
+
+// ==================== ЭКСПОРТ/ИМПОРТ ====================
+function exportSave() {
+    const data = { version: "1.0", progress: userProgress, achievements: earnedAchievements };
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(data)], { type: "application/json" }));
+    a.download = `grafmaster_save_${new Date().toISOString().slice(0,19)}.json`;
+    a.click();
+    alert("💾 Сохранение экспортировано!");
+}
+function importSave(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        try {
+            const data = JSON.parse(e.target.result);
+            if (data.progress) {
+                userProgress = data.progress;
+                earnedAchievements = data.achievements || [];
+                localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
+                localStorage.setItem("graphGameAchievements", JSON.stringify(earnedAchievements));
+                initProgress();
+                location.reload();
+            } else alert("❌ Неверный формат!");
+        } catch(err) { alert("Ошибка: " + err.message); }
+    };
+    reader.readAsText(file);
+}
+
+// ==================== МОДАЛЬНЫЕ ОКНА ====================
+document.getElementById("showAchievementsBtn")?.addEventListener("click", () => { renderAchievements(); document.getElementById("achievementsModal").style.display = "block"; });
+document.querySelector(".modal-close")?.addEventListener("click", () => document.getElementById("achievementsModal").style.display = "none");
+document.getElementById("showReviewsBtn")?.addEventListener("click", () => { renderReviews(); document.getElementById("reviewsModal").style.display = "block"; });
+document.querySelector(".modal-close-reviews")?.addEventListener("click", () => document.getElementById("reviewsModal").style.display = "none");
+document.getElementById("resetProgressBtn")?.addEventListener("click", resetAllProgress);
+document.getElementById("unlockAllBtn")?.addEventListener("click", unlockAllLevels);
+document.getElementById("exportSaveBtn")?.addEventListener("click", exportSave);
+document.getElementById("importSaveInput")?.addEventListener("change", e => { if (e.target.files[0]) importSave(e.target.files[0]); e.target.value = ""; });
+window.onclick = e => { if (e.target === document.getElementById("achievementsModal")) document.getElementById("achievementsModal").style.display = "none"; if (e.target === document.getElementById("reviewsModal")) document.getElementById("reviewsModal").style.display = "none"; };
+
+// ==================== МОБИЛЬНОЕ МЕНЮ ====================
+document.getElementById("mobileMenuBtn")?.addEventListener("click", () => document.getElementById("levelsSidebar")?.classList.add("open"));
+document.getElementById("closeSidebarBtn")?.addEventListener("click", () => document.getElementById("levelsSidebar")?.classList.remove("open"));
+document.addEventListener("click", e => { if (window.innerWidth <= 768 && document.getElementById("levelsSidebar")?.classList.contains("open") && !document.getElementById("levelsSidebar")?.contains(e.target) && !document.getElementById("mobileMenuBtn")?.contains(e.target)) document.getElementById("levelsSidebar")?.classList.remove("open"); });
+
+// ==================== ЗАПУСК ====================
 function init() {
     updateExpUI();
     renderSidebar();
@@ -1281,308 +1262,7 @@ function init() {
     updateHeaderInfo();
     updateBlockProgress();
     checkLevelUnlocks();
-    addControlButtons();
     updateTabIconsStatus(currentLevel);
     renderAchievements();
 }
-
 init();
-// ==================== СИСТЕМА ОТЗЫВОВ ====================
-let reviews = JSON.parse(localStorage.getItem("grafMasterReviews")) || [];
-
-function saveReviews() {
-    localStorage.setItem("grafMasterReviews", JSON.stringify(reviews));
-}
-
-function addReview(author, rating, text) {
-    const newReview = {
-        id: Date.now(),
-        author: author || "Аноним",
-        rating: Math.min(5, Math.max(1, parseInt(rating) || 5)),
-        text: text.trim() || "Отличный сайт для изучения функций!",
-        date: new Date().toLocaleString()
-    };
-    reviews.unshift(newReview);
-    saveReviews();
-    renderReviews();
-    return newReview;
-}
-
-function deleteReview(id) {
-    reviews = reviews.filter(r => r.id !== id);
-    saveReviews();
-    renderReviews();
-}
-
-function getAverageRating() {
-    if (reviews.length === 0) return 0;
-    const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
-    return (sum / reviews.length).toFixed(1);
-}
-
-function renderStars(rating, size = "normal") {
-    const starSize = size === "small" ? "0.8rem" : "1rem";
-    let stars = "";
-    for (let i = 1; i <= 5; i++) {
-        if (i <= rating) {
-            stars += `<span class="review-star" style="font-size:${starSize}">★</span>`;
-        } else {
-            stars += `<span class="review-star empty" style="font-size:${starSize}">☆</span>`;
-        }
-    }
-    return stars;
-}
-
-function renderReviews() {
-    const reviewsPanel = document.getElementById("reviewsPanel");
-    if (!reviewsPanel) return;
-    
-    const avgRating = getAverageRating();
-    const totalReviews = reviews.length;
-    
-    let html = `
-        <div class="review-form">
-            <h4>📝 Оставить отзыв</h4>
-            <div class="rating-input">
-                <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
-                <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
-                <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
-                <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
-                <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
-            </div>
-            <input type="text" id="reviewAuthorInput" placeholder="Ваше имя (необязательно)" class="review-text-input" style="margin-bottom:10px;">
-            <textarea id="reviewTextInput" rows="3" placeholder="Ваш отзыв..." class="review-text-input"></textarea>
-            <button id="submitReviewBtn" class="submit-review-btn">📤 Отправить отзыв</button>
-        </div>
-    `;
-    
-    if (totalReviews > 0) {
-        html += `
-            <div class="average-rating">
-                <div class="rating-value">${avgRating}</div>
-                <div class="rating-stars">${renderStars(avgRating)}</div>
-                <div class="rating-count">${totalReviews} ${totalReviews === 1 ? 'отзыв' : totalReviews < 5 ? 'отзыва' : 'отзывов'}</div>
-            </div>
-        `;
-    }
-    
-    html += `<div class="reviews-list">`;
-    
-    if (reviews.length === 0) {
-        html += `<div class="no-reviews">✨ Пока нет отзывов. Будьте первым!</div>`;
-    } else {
-        reviews.forEach(review => {
-            html += `
-                <div class="review-item" data-id="${review.id}">
-                    <div class="review-header">
-                        <span class="review-author">${escapeHtml(review.author)}</span>
-                        <div class="review-rating">${renderStars(review.rating, "small")}</div>
-                        <span class="review-date">${review.date}</span>
-                    </div>
-                    <div class="review-text">${escapeHtml(review.text)}</div>
-                    <button class="delete-review-btn" data-id="${review.id}">🗑️ Удалить</button>
-                </div>
-            `;
-        });
-    }
-    
-    html += `</div>`;
-    reviewsPanel.innerHTML = html;
-    
-    document.getElementById("submitReviewBtn")?.addEventListener("click", () => {
-        const ratingInput = document.querySelector('input[name="rating"]:checked');
-        const rating = ratingInput ? ratingInput.value : 5;
-        const author = document.getElementById("reviewAuthorInput")?.value.trim() || "";
-        const text = document.getElementById("reviewTextInput")?.value.trim() || "";
-        
-        if (!text) {
-            alert("Пожалуйста, напишите отзыв!");
-            return;
-        }
-        
-        addReview(author, rating, text);
-        
-        // Очищаем форму
-        if (ratingInput) ratingInput.checked = false;
-        if (document.getElementById("reviewAuthorInput")) document.getElementById("reviewAuthorInput").value = "";
-        if (document.getElementById("reviewTextInput")) document.getElementById("reviewTextInput").value = "";
-        
-        alert("Спасибо за ваш отзыв! 🌟");
-    });
-    
-    document.querySelectorAll(".delete-review-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            const id = parseInt(btn.dataset.id);
-            if (confirm("Удалить этот отзыв?")) {
-                deleteReview(id);
-            }
-        });
-    });
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-// ==================== ЭКСПОРТ/ИМПОРТ СОХРАНЕНИЙ ====================
-function exportSave() {
-    const saveData = {
-        version: "1.0",
-        exportDate: new Date().toISOString(),
-        progress: userProgress,
-        achievements: earnedAchievements
-    };
-    
-    const dataStr = JSON.stringify(saveData, null, 2);
-    const blob = new Blob([dataStr], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `grafmaster_save_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    alert("💾 Сохранение экспортировано! Файл сохранён в папку Загрузки.");
-}
-
-function importSave(file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const saveData = JSON.parse(e.target.result);
-            
-            if (saveData.progress && saveData.achievements !== undefined) {
-                // Восстанавливаем прогресс
-                userProgress = saveData.progress;
-                earnedAchievements = saveData.achievements || [];
-                
-                // Сохраняем в localStorage
-                localStorage.setItem("graphGameProgress", JSON.stringify(userProgress));
-                localStorage.setItem("graphGameAchievements", JSON.stringify(earnedAchievements));
-                
-                // Переинициализируем
-                initProgress();
-                
-                // Обновляем интерфейс
-                updateExpUI();
-                renderSidebar();
-                renderAllTabs();
-                updateHeaderInfo();
-                updateBlockProgress();
-                updateTabIconsStatus(currentLevel);
-                renderAchievements();
-                
-                alert("✅ Сохранение успешно загружено! Страница будет обновлена.");
-                setTimeout(() => location.reload(), 1500);
-            } else {
-                alert("❌ Неверный формат файла сохранения!");
-            }
-        } catch(err) {
-            alert("❌ Ошибка при чтении файла: " + err.message);
-        }
-    };
-    reader.readAsText(file);
-}
-
-// ==================== МОДАЛЬНЫЕ ОКНА ====================
-const reviewsModal = document.getElementById("reviewsModal");
-const showReviewsBtn = document.getElementById("showReviewsBtn");
-const closeReviewsBtn = document.querySelector(".modal-close-reviews");
-const exportBtn = document.getElementById("exportSaveBtn");
-const importInput = document.getElementById("importSaveInput");
-
-if (showReviewsBtn) {
-    showReviewsBtn.onclick = () => {
-        renderReviews();
-        if (reviewsModal) reviewsModal.style.display = "block";
-    };
-}
-
-if (closeReviewsBtn) {
-    closeReviewsBtn.onclick = () => {
-        if (reviewsModal) reviewsModal.style.display = "none";
-    };
-}
-
-if (exportBtn) {
-    exportBtn.onclick = exportSave;
-}
-
-if (importInput) {
-    importInput.onchange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            importSave(e.target.files[0]);
-        }
-        importInput.value = "";
-    };
-}
-
-// Закрытие модальных окон по клику вне
-window.onclick = function(event) {
-    const achievementsModal = document.getElementById("achievementsModal");
-    if (event.target === achievementsModal) {
-        achievementsModal.style.display = "none";
-    }
-    if (event.target === reviewsModal) {
-        reviewsModal.style.display = "none";
-    }
-}
-
-// ==================== МОБИЛЬНОЕ МЕНЮ ====================
-const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-const levelsSidebar = document.getElementById("levelsSidebar");
-const closeSidebarBtn = document.getElementById("closeSidebarBtn");
-
-function openMobileSidebar() {
-    if (levelsSidebar && window.innerWidth <= 768) {
-        levelsSidebar.classList.add("open");
-        document.body.style.overflow = "hidden";
-    }
-}
-
-function closeMobileSidebar() {
-    if (levelsSidebar) {
-        levelsSidebar.classList.remove("open");
-        document.body.style.overflow = "";
-    }
-}
-
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", openMobileSidebar);
-}
-
-if (closeSidebarBtn) {
-    closeSidebarBtn.addEventListener("click", closeMobileSidebar);
-}
-
-// Закрытие сайдбара при клике вне его на мобильных
-document.addEventListener("click", function(event) {
-    if (window.innerWidth <= 768 && levelsSidebar && levelsSidebar.classList.contains("open")) {
-        const isClickInside = levelsSidebar.contains(event.target);
-        const isClickOnMenuBtn = mobileMenuBtn && mobileMenuBtn.contains(event.target);
-        if (!isClickInside && !isClickOnMenuBtn) {
-            closeMobileSidebar();
-        }
-    }
-});
-
-// При выборе уровня на мобильном - закрываем сайдбар
-if (typeof renderSidebar === 'function') {
-    const originalRenderSidebar = renderSidebar;
-    window.renderSidebar = function() {
-        originalRenderSidebar();
-        setTimeout(() => {
-            document.querySelectorAll(".level-btn").forEach(btn => {
-                btn.addEventListener("click", () => {
-                    if (window.innerWidth <= 768) {
-                        closeMobileSidebar();
-                    }
-                });
-            });
-        }, 100);
-    };
-}
