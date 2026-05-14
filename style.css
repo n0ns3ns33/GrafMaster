@@ -89,7 +89,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Мобильная кнопка меню (скрыта на компьютере) */
 .mobile-menu-btn {
     display: none;
 }
@@ -99,20 +98,21 @@ body {
 }
 
 .main-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr;
+    display: flex;
     flex: 1;
     overflow: hidden;
     min-height: 0;
 }
 
 .levels-sidebar {
+    width: 280px;
     background: rgba(0, 0, 0, 0.4);
     padding: 12px;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -253,40 +253,27 @@ body {
     font-size: 0.8rem;
 }
 
-.reset-btn {
-    background: #e74c3c;
-}
-
-.reset-btn:hover {
-    background: #c0392b;
-}
-
-.unlock-btn {
-    background: #f39c12;
-}
-
-.unlock-btn:hover {
-    background: #e67e22;
-}
-
-.achievements-btn {
-    background: linear-gradient(135deg, #f39c12, #e67e22);
-}
-
-.achievements-btn:hover {
-    background: linear-gradient(135deg, #e67e22, #d35400);
-}
+.reset-btn { background: #e74c3c; }
+.reset-btn:hover { background: #c0392b; }
+.unlock-btn { background: #f39c12; }
+.unlock-btn:hover { background: #e67e22; }
+.achievements-btn { background: linear-gradient(135deg, #f39c12, #e67e22); }
+.achievements-btn:hover { background: linear-gradient(135deg, #e67e22, #d35400); }
+.export-btn { background: linear-gradient(135deg, #3498db, #2980b9); }
+.export-btn:hover { background: linear-gradient(135deg, #2980b9, #1a6fa0); }
+.import-btn { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+.import-btn:hover { background: linear-gradient(135deg, #8e44ad, #7d3c98); }
+.reviews-btn { background: linear-gradient(135deg, #e91e63, #c2185b); }
+.reviews-btn:hover { background: linear-gradient(135deg, #c2185b, #ad1457); }
 
 .content-area {
+    flex: 1;
     padding: 12px 15px;
     background: rgba(255, 255, 255, 0.03);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     min-height: 0;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
 }
 
 .game-tabs-navigation {
@@ -316,35 +303,13 @@ body {
     min-width: 100px;
 }
 
-.game-tab-btn .tab-icon {
-    font-size: 1.8rem;
-    filter: drop-shadow(0 0 2px rgba(255, 165, 0, 0.5));
-}
-
-.game-tab-btn .tab-label {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.game-tab-btn:hover {
-    transform: translateY(-3px);
-    border-color: #ffa500;
-    background: linear-gradient(135deg, #3e5e6e, #2a3a46);
-    box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
-}
-
-.game-tab-btn.active {
-    background: linear-gradient(135deg, #ffa500, #ff7e05);
-    border-color: #fff0b5;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
-}
-
+.game-tab-btn .tab-icon { font-size: 1.8rem; filter: drop-shadow(0 0 2px rgba(255, 165, 0, 0.5)); }
+.game-tab-btn .tab-label { font-size: 1rem; font-weight: bold; }
+.game-tab-btn:hover { transform: translateY(-3px); border-color: #ffa500; background: linear-gradient(135deg, #3e5e6e, #2a3a46); box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3); }
+.game-tab-btn.active { background: linear-gradient(135deg, #ffa500, #ff7e05); border-color: #fff0b5; box-shadow: 0 0 15px rgba(255, 165, 0, 0.6); }
 .game-tab-btn.completed-theory .tab-icon,
 .game-tab-btn.completed-test .tab-icon,
-.game-tab-btn.completed-practice .tab-icon {
-    filter: drop-shadow(0 0 8px #2ecc71);
-    color: #2ecc71;
-}
+.game-tab-btn.completed-practice .tab-icon { filter: drop-shadow(0 0 8px #2ecc71); color: #2ecc71; }
 
 .tab-content {
     display: none;
@@ -353,10 +318,7 @@ body {
     min-height: 0;
     overflow-y: auto;
 }
-
-.tab-content.active {
-    display: block;
-}
+.tab-content.active { display: block; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
@@ -370,9 +332,7 @@ body {
     padding: 15px 18px;
     margin-bottom: 15px;
     border-left: 4px solid #ffa500;
-    max-width: 100%;
 }
-
 .block-card h3 {
     color: #ffd966;
     margin-bottom: 12px;
@@ -393,31 +353,11 @@ body {
     align-items: center;
     gap: 8px;
 }
+.block-progress-bar { width: 100px; height: 4px; background: #2c3e4e; border-radius: 4px; overflow: hidden; }
+.block-progress-fill { height: 100%; background: #ffa500; border-radius: 4px; transition: width 0.3s; }
 
-.block-progress-bar {
-    width: 100px;
-    height: 4px;
-    background: #2c3e4e;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.block-progress-fill {
-    height: 100%;
-    background: #ffa500;
-    border-radius: 4px;
-    transition: width 0.3s;
-}
-
-.theory-content {
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-.theory-content p {
-    margin: 12px 0;
-}
-
+.theory-content { line-height: 1.6; font-size: 0.95rem; }
+.theory-content p { margin: 12px 0; }
 .theory-content .formula-box {
     background: linear-gradient(135deg, #0f1a1f, #1a2a2f);
     padding: 15px 20px;
@@ -425,9 +365,7 @@ body {
     margin: 15px 0;
     text-align: center;
     border: 2px solid #ffa500;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-
 .theory-content .important {
     background: rgba(231, 76, 60, 0.3);
     border-left: 4px solid #e74c3c;
@@ -436,28 +374,19 @@ body {
     border-radius: 8px;
     font-weight: bold;
 }
-
 .theory-content .property-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
     margin: 15px 0;
 }
-
 .theory-content .property-card {
     background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
     padding: 10px 14px;
     border-left: 3px solid #ffa500;
 }
-
-.theory-content .property-card strong {
-    color: #ffd966;
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-}
-
+.theory-content .property-card strong { color: #ffd966; display: block; font-size: 0.9rem; margin-bottom: 6px; }
 .theory-content .example-box {
     background: rgba(255, 165, 0, 0.15);
     border-left: 4px solid #ffa500;
@@ -465,60 +394,19 @@ body {
     margin: 15px 0;
     border-radius: 12px;
 }
+.theory-content .example-graph { margin-top: 10px; background: #0a1217; border-radius: 12px; padding: 10px; text-align: center; }
+.theory-content .example-graph canvas { max-width: 100%; width: auto; height: auto; max-height: 280px; background: #0a1217; border-radius: 10px; display: inline-block; }
+.theory-content .formula-list { background: rgba(0, 0, 0, 0.3); padding: 12px; border-radius: 12px; margin: 12px 0; }
+.theory-content .formula-list li { margin: 8px 0; font-family: monospace; font-size: 0.9rem; }
+.theory-content .highlight { background: rgba(255, 165, 0, 0.25); padding: 3px 10px; border-radius: 12px; font-weight: bold; color: #ffd966; display: inline-block; }
 
-.theory-content .example-graph {
-    margin-top: 10px;
-    background: #0a1217;
-    border-radius: 12px;
-    padding: 10px;
-    text-align: center;
-}
-
-.theory-content .example-graph canvas {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    max-height: 280px;
-    background: #0a1217;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.theory-content .formula-list {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 12px;
-    border-radius: 12px;
-    margin: 12px 0;
-}
-
-.theory-content .formula-list li {
-    margin: 8px 0;
-    font-family: monospace;
-    font-size: 0.9rem;
-}
-
-.theory-content .highlight {
-    background: rgba(255, 165, 0, 0.25);
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-weight: bold;
-    color: #ffd966;
-    display: inline-block;
-}
-
-.practice-tasks-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+.practice-tasks-container { display: flex; flex-direction: column; gap: 20px; }
 .practice-task-item {
     background: linear-gradient(135deg, #1e2f3a, #16242e);
     border-radius: 16px;
     padding: 15px;
     border: 1px solid rgba(255, 165, 0, 0.3);
 }
-
 .practice-task-header {
     display: flex;
     justify-content: space-between;
@@ -527,90 +415,81 @@ body {
     flex-wrap: wrap;
     gap: 10px;
 }
-
-.practice-task-title {
-    font-weight: bold;
-    color: #ffd966;
-    font-size: 1rem;
-}
-
-.practice-task-status {
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.5);
-}
-
-.practice-task-status.completed {
-    background: #2ecc71;
-    color: white;
-}
+.practice-task-title { font-weight: bold; color: #ffd966; font-size: 1rem; }
+.practice-task-status { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; background: rgba(0,0,0,0.5); }
+.practice-task-status.completed { background: #2ecc71; color: white; }
 
 .practice-graph-container {
-    background: #0a1217;
-    border-radius: 12px;
-    padding: 10px;
     margin: 12px 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
 }
-
 .practice-graph-container canvas {
     max-width: 100%;
     width: auto;
     height: auto;
-    max-height: 280px;
     background: #0a1217;
     border-radius: 10px;
-    display: inline-block;
+    cursor: crosshair;
+    border: 3px solid #ffa500;
 }
 
-.target-graph-label {
+.practice-formula-display {
     text-align: center;
-    font-size: 0.7rem;
-    color: #6fbf6f;
-    margin-bottom: 5px;
-}
-
-.func-input-area {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 12px 0;
-}
-
-.func-input-area input {
-    background: #0f1a1f;
+    margin: 15px 0;
+    padding: 12px;
+    background: linear-gradient(135deg, #1a2a3a, #0f1a24);
+    border-radius: 16px;
     border: 2px solid #ffa500;
-    padding: 8px 12px;
-    border-radius: 25px;
-    color: white;
+}
+.formula-badge { font-size: 1.1rem; color: #ffd966; }
+.formula-highlight {
+    font-size: 1.3rem;
     font-family: monospace;
-    font-size: 0.9rem;
-    flex: 1;
-    min-width: 180px;
+    background: rgba(255, 165, 0, 0.3);
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-left: 8px;
 }
 
-.func-input-area button {
-    background: #ffa500;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
+.point-controls {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
-.submit-answer-btn {
-    background: linear-gradient(95deg, #ffa500, #ff7e05);
+.point-controls button {
+    background: #e67e22;
     border: none;
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 30px;
     cursor: pointer;
-    margin-top: 8px;
     color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.2s ease;
 }
+.point-controls button:hover { transform: scale(1.02); filter: brightness(1.1); }
+.point-controls button:last-child { background: #e74c3c; }
+
+.check-btn, .submit-btn {
+    transition: all 0.2s ease;
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    flex: 1;
+}
+.check-btn { background: #3498db; color: white; }
+.submit-btn { background: #2ecc71; color: white; }
+.check-btn:hover, .submit-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 .question-item {
     background: linear-gradient(135deg, #1e2f3a, #16242e);
@@ -619,24 +498,8 @@ body {
     margin-bottom: 12px;
     border: 1px solid rgba(255, 165, 0, 0.3);
 }
-
-.question-text {
-    font-weight: bold;
-    margin-bottom: 12px;
-    font-size: 1rem;
-    color: #ffd966;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
+.question-text { font-weight: bold; margin-bottom: 12px; font-size: 1rem; color: #ffd966; display: flex; align-items: center; gap: 10px; }
+.options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
 .option {
     display: flex;
     align-items: center;
@@ -648,35 +511,12 @@ body {
     transition: all 0.2s;
     font-size: 0.9rem;
 }
+.option:hover { background: #3e5e6e; transform: translateX(5px); }
+.option input { cursor: pointer; width: 18px; height: 18px; accent-color: #ffa500; }
 
-.option:hover {
-    background: #3e5e6e;
-    transform: translateX(5px);
-}
-
-.option input {
-    cursor: pointer;
-    width: 18px;
-    height: 18px;
-    accent-color: #ffa500;
-}
-
-.test-feedback {
-    margin-top: 10px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-}
-
-.test-feedback.correct {
-    background: linear-gradient(135deg, #2e7d5e, #236b4f);
-    border-left: 4px solid #6fbf6f;
-}
-
-.test-feedback.wrong {
-    background: linear-gradient(135deg, #a13e3e, #8a3232);
-    border-left: 4px solid #ff8888;
-}
+.test-feedback { margin-top: 10px; padding: 10px 14px; border-radius: 12px; font-size: 0.85rem; }
+.test-feedback.correct { background: linear-gradient(135deg, #2e7d5e, #236b4f); border-left: 4px solid #6fbf6f; }
+.test-feedback.wrong { background: linear-gradient(135deg, #a13e3e, #8a3232); border-left: 4px solid #ff8888; }
 
 .submit-test-btn {
     background: linear-gradient(95deg, #ffa500, #ff7e05);
@@ -690,7 +530,6 @@ body {
     margin-top: 10px;
     width: 100%;
 }
-
 .test-success {
     background: linear-gradient(135deg, #2ecc71, #27ae60);
     padding: 12px 18px;
@@ -700,32 +539,12 @@ body {
     font-weight: bold;
 }
 
-.practice-feedback {
-    margin-top: 10px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-}
+.practice-feedback { margin-top: 10px; padding: 8px 12px; border-radius: 10px; font-size: 0.85rem; }
+.practice-feedback.correct { background: #2e7d5e; border-left: 4px solid #6fbf6f; }
+.practice-feedback.wrong { background: #a13e3e; border-left: 4px solid #ff8888; }
 
-.practice-feedback.correct {
-    background: #2e7d5e;
-    border-left: 4px solid #6fbf6f;
-}
+.success-message { background: #2ecc71; padding: 10px; border-radius: 12px; text-align: center; margin-top: 15px; }
 
-.practice-feedback.wrong {
-    background: #a13e3e;
-    border-left: 4px solid #ff8888;
-}
-
-.success-message {
-    background: #2ecc71;
-    padding: 10px;
-    border-radius: 12px;
-    text-align: center;
-    margin-top: 15px;
-}
-
-/* Модальное окно достижений */
 .modal {
     display: none;
     position: fixed;
@@ -737,7 +556,6 @@ body {
     background-color: rgba(0,0,0,0.8);
     backdrop-filter: blur(5px);
 }
-
 .modal-content {
     background: linear-gradient(145deg, #1a2a3a 0%, #0f1a24 100%);
     margin: 5% auto;
@@ -749,12 +567,10 @@ body {
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     animation: modalFadeIn 0.3s ease;
 }
-
 @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-50px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 .modal-header {
     padding: 15px 20px;
     background: linear-gradient(135deg, #ffa500, #ff7e05);
@@ -763,38 +579,16 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.modal-header h2 {
-    color: white;
-    margin: 0;
-    font-size: 1.3rem;
-}
-
-.modal-close {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.modal-close:hover {
-    color: #2c3e4e;
-    transform: scale(1.2);
-}
-
-.modal-body {
-    padding: 20px;
-    max-height: 70vh;
-    overflow-y: auto;
-}
+.modal-header h2 { color: white; margin: 0; font-size: 1.3rem; }
+.modal-close, .modal-close-reviews { color: white; font-size: 28px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.modal-close:hover, .modal-close-reviews:hover { color: #2c3e4e; transform: scale(1.2); }
+.modal-body { padding: 20px; max-height: 70vh; overflow-y: auto; }
 
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 15px;
 }
-
 .achievement-card {
     background: linear-gradient(135deg, #1e2f3a, #16242e);
     border-radius: 12px;
@@ -804,52 +598,19 @@ body {
     transition: all 0.3s;
     border: 1px solid rgba(255, 165, 0, 0.3);
 }
-
 .achievement-card.earned {
     border: 2px solid #2ecc71;
     background: linear-gradient(135deg, #1e3a2a, #162e22);
     box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
 }
+.achievement-card.locked { opacity: 0.6; }
+.achievement-icon { font-size: 2.2rem; margin-bottom: 8px; }
+.achievement-name { font-weight: bold; color: #ffd966; font-size: 0.9rem; margin-bottom: 4px; }
+.achievement-desc { font-size: 0.7rem; color: #aaa; }
+.achievement-lock, .achievement-check { position: absolute; top: 8px; right: 10px; font-size: 0.9rem; }
+.achievement-check { color: #2ecc71; }
+.achievement-progress { margin-top: 8px; font-size: 0.65rem; color: #888; }
 
-.achievement-card.locked {
-    opacity: 0.6;
-}
-
-.achievement-icon {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-}
-
-.achievement-name {
-    font-weight: bold;
-    color: #ffd966;
-    font-size: 0.9rem;
-    margin-bottom: 4px;
-}
-
-.achievement-desc {
-    font-size: 0.7rem;
-    color: #aaa;
-}
-
-.achievement-lock, .achievement-check {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    font-size: 0.9rem;
-}
-
-.achievement-check {
-    color: #2ecc71;
-}
-
-.achievement-progress {
-    margin-top: 8px;
-    font-size: 0.65rem;
-    color: #888;
-}
-
-/* Уведомление о достижении */
 .achievement-notification {
     position: fixed;
     bottom: 20px;
@@ -866,71 +627,142 @@ body {
     max-width: 320px;
     border-left: 4px solid #ffd700;
 }
+.achievement-notification.show { right: 20px; }
+.achievement-notification-icon { font-size: 2rem; }
+.achievement-notification-content { flex: 1; }
+.achievement-notification-title { font-size: 0.8rem; opacity: 0.9; }
+.achievement-notification-name { font-weight: bold; font-size: 1rem; margin: 2px 0; }
+.achievement-notification-desc { font-size: 0.7rem; opacity: 0.8; }
 
-.achievement-notification.show {
-    right: 20px;
+.review-form {
+    background: linear-gradient(135deg, #1e2f3a, #16242e);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
 }
-
-.achievement-notification-icon {
-    font-size: 2rem;
+.review-form h4 { color: #ffd966; margin-bottom: 12px; font-size: 1rem; }
+.rating-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
+.rating-input input { display: none; }
+.rating-input label { font-size: 2rem; color: #555; cursor: pointer; transition: 0.2s; }
+.rating-input label:hover,
+.rating-input label:hover ~ label,
+.rating-input input:checked ~ label { color: #ffc107; }
 
-.achievement-notification-content {
-    flex: 1;
+.review-text-input {
+    width: 100%;
+    background: #0f1a1f;
+    border: 1px solid #ffa500;
+    border-radius: 12px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9rem;
+    resize: vertical;
+    margin-bottom: 12px;
 }
-
-.achievement-notification-title {
-    font-size: 0.8rem;
-    opacity: 0.9;
-}
-
-.achievement-notification-name {
+.review-text-input:focus { outline: none; border-color: #ffd966; }
+.submit-review-btn {
+    background: linear-gradient(95deg, #ffa500, #ff7e05);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
     font-weight: bold;
-    font-size: 1rem;
-    margin: 2px 0;
+    cursor: pointer;
+    color: white;
+    width: 100%;
 }
 
-.achievement-notification-desc {
+.reviews-list { max-height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.review-item {
+    background: rgba(30, 40, 50, 0.5);
+    border-radius: 12px;
+    padding: 12px;
+    border-left: 3px solid #ffa500;
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.review-author { font-weight: bold; color: #ffd966; font-size: 0.85rem; }
+.review-rating { display: flex; gap: 3px; }
+.review-star { color: #ffc107; font-size: 0.9rem; }
+.review-star.empty { color: #555; }
+.review-date { font-size: 0.65rem; color: #888; }
+.review-text { font-size: 0.85rem; line-height: 1.4; color: #ddd; }
+.delete-review-btn {
+    background: rgba(231, 76, 60, 0.3);
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
     font-size: 0.7rem;
-    opacity: 0.8;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 8px;
+    transition: 0.2s;
+}
+.delete-review-btn:hover { background: #e74c3c; color: white; }
+.no-reviews { text-align: center; color: #888; padding: 20px; }
+.average-rating {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.average-rating .rating-value { font-size: 2rem; font-weight: bold; color: #ffc107; }
+.average-rating .rating-stars { font-size: 1.2rem; }
+.average-rating .rating-count { font-size: 0.8rem; color: #aaa; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #1e2a32; }
+::-webkit-scrollbar-thumb { background: #ffa500; border-radius: 6px; }
+
+/* ==================== АДАПТИВНАЯ ВЕРСТКА ==================== */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+    .game-header { padding: 8px 15px; }
+    .game-header h1 { font-size: 1rem; }
+    .level-info { gap: 10px; padding: 4px 10px; font-size: 0.75rem; }
+    .exp-bar-container { width: 80px; }
+    #currentLevelDisplay { font-size: 0.75rem; }
+    .game-tab-btn { padding: 10px 20px; min-width: 80px; }
+    .game-tab-btn .tab-icon { font-size: 1.4rem; }
+    .game-tab-btn .tab-label { font-size: 0.85rem; }
+    .block-card { padding: 12px; }
 }
 
-/* Стили для скроллбара */
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    background: #1e2a32;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ffa500;
-    border-radius: 6px;
-}
-
-/* ==================== МОБИЛЬНАЯ АДАПТАЦИЯ (ТОЛЬКО ДЛЯ ТЕЛЕФОНОВ) ==================== */
+/* Мобильные устройства (до 768px) */
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: block;
         position: fixed;
-        top: 65px;
+        top: 10px;
         left: 10px;
         z-index: 100;
         background: #ffa500;
         border: none;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        font-size: 1.4rem;
+        padding: 10px 15px;
+        border-radius: 30px;
+        font-size: 0.9rem;
         cursor: pointer;
         box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         transition: all 0.3s;
+        color: white;
+        font-weight: bold;
     }
     
-    .main-layout {
-        display: block;
-    }
+    .main-layout { display: block; }
     
     .levels-sidebar {
         position: fixed;
@@ -946,10 +778,7 @@ body {
         padding: 15px;
         transition: transform 0.3s ease;
     }
-    
-    .levels-sidebar.open {
-        transform: translateX(0);
-    }
+    .levels-sidebar.open { transform: translateX(0); }
     
     .close-sidebar-btn {
         display: block;
@@ -959,306 +788,119 @@ body {
         font-size: 1.3rem;
         cursor: pointer;
     }
-    
     .sidebar-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 15px;
     }
+    .levels-sidebar h3 { margin-bottom: 0; }
     
-    .levels-sidebar h3 {
-        margin-bottom: 0;
-    }
-    
-    .content-area {
-        padding: 10px;
-        height: calc(100vh - 70px);
-    }
+    .content-area { padding: 10px; height: calc(100vh - 60px); }
     
     .game-tabs-navigation {
         padding: 8px 12px;
         gap: 8px;
+        margin-bottom: 15px;
     }
+    .game-tab-btn { padding: 8px 12px; min-width: 60px; }
+    .game-tab-btn .tab-icon { font-size: 1.1rem; }
+    .game-tab-btn .tab-label { font-size: 0.7rem; }
     
-    .game-tab-btn {
-        padding: 10px 16px;
-        min-width: 70px;
-    }
+    .block-card { padding: 10px; }
+    .block-card h3 { font-size: 1rem; }
+    .theory-content { font-size: 0.85rem; }
+    .theory-content .property-grid { grid-template-columns: 1fr; }
     
-    .game-tab-btn .tab-icon {
-        font-size: 1.3rem;
-    }
-    
-    .game-tab-btn .tab-label {
-        font-size: 0.75rem;
-    }
-    
-    .block-card {
-        padding: 12px;
-    }
-    
-    .block-card h3 {
+    .formula-highlight {
         font-size: 1rem;
+        display: block;
+        margin-top: 8px;
+        margin-left: 0;
     }
     
-    .theory-content {
-        font-size: 0.85rem;
-    }
+    .point-controls button { padding: 8px 16px; font-size: 13px; }
+    .check-btn, .submit-btn { font-size: 13px; padding: 10px; }
     
-    .theory-content .property-grid {
-        grid-template-columns: 1fr;
-    }
+    .option { padding: 8px 12px; font-size: 0.8rem; }
+    .modal-content { margin: 20% auto; width: 95%; }
+    .achievements-grid { grid-template-columns: 1fr; }
     
-    .func-input-area {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .func-input-area button {
+    .practice-graph-container canvas {
         width: 100%;
-    }
-    
-    .submit-answer-btn {
-        width: 100%;
-    }
-    
-    .option {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-    
-    .modal-content {
-        margin: 20% auto;
-        width: 95%;
-    }
-    
-    .achievements-grid {
-        grid-template-columns: 1fr;
+        height: auto;
+        max-width: 450px;
     }
 }
 
+/* Маленькие телефоны (до 480px) */
 @media (max-width: 480px) {
-    .game-header h1 {
-        font-size: 0.9rem;
-    }
+    .game-header { flex-direction: column; align-items: stretch; gap: 8px; }
+    .game-header h1 { text-align: center; }
+    .level-info { justify-content: center; }
+    .level-info-right { justify-content: center; }
+    #currentLevelDisplay { max-width: none; font-size: 0.7rem; }
+    .stars-progress { font-size: 0.8rem; }
     
-    .level-info {
-        gap: 8px;
-        padding: 3px 10px;
-    }
+    .mobile-menu-btn { top: 5px; left: 5px; padding: 6px 12px; font-size: 0.8rem; }
     
-    .exp-bar-container {
-        width: 70px;
-    }
+    .content-area { padding: 8px; }
     
-    #currentLevelDisplay {
-        font-size: 0.7rem;
-        max-width: 130px;
-    }
+    .game-tabs-navigation { gap: 5px; padding: 6px 8px; }
+    .game-tab-btn { padding: 6px 8px; }
+    .game-tab-btn .tab-icon { font-size: 0.9rem; }
+    .game-tab-btn .tab-label { font-size: 0.6rem; }
     
-    .game-tab-btn {
-        padding: 8px 12px;
-    }
+    .formula-badge { font-size: 0.85rem; }
+    .formula-highlight { font-size: 0.85rem; }
     
-    .game-tab-btn .tab-icon {
-        font-size: 1.1rem;
-    }
+    .point-controls { gap: 8px; }
+    .point-controls button { padding: 6px 12px; font-size: 11px; }
     
-    .game-tab-btn .tab-label {
-        font-size: 0.7rem;
-    }
-}
-/* Дополнительные стили для кнопок экспорта/импорта и отзывов */
-.export-btn {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-}
-
-.export-btn:hover {
-    background: linear-gradient(135deg, #2980b9, #1a6fa0);
-}
-
-.import-btn {
-    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    .check-btn, .submit-btn { font-size: 12px; padding: 8px; }
+    
+    .practice-graph-container canvas { max-width: 350px; }
+    
+    .question-text { font-size: 0.85rem; }
+    .option { padding: 6px 10px; font-size: 0.75rem; }
+    
+    .modal-header h2 { font-size: 1rem; }
+    .modal-close, .modal-close-reviews { font-size: 24px; }
+    .modal-body { padding: 12px; }
+    
+    .achievement-icon { font-size: 1.8rem; }
+    .achievement-name { font-size: 0.8rem; }
 }
 
-.import-btn:hover {
-    background: linear-gradient(135deg, #8e44ad, #7d3c98);
+/* Очень маленькие телефоны (до 360px) */
+@media (max-width: 360px) {
+    .game-tab-btn .tab-icon { font-size: 0.8rem; }
+    .game-tab-btn .tab-label { font-size: 0.55rem; }
+    .practice-graph-container canvas { max-width: 280px; }
+    .point-controls button { padding: 5px 10px; font-size: 10px; }
+    .check-btn, .submit-btn { font-size: 11px; padding: 6px; }
+    .formula-highlight { font-size: 0.75rem; }
+    .block-card h3 { font-size: 0.9rem; }
 }
 
-.reviews-btn {
-    background: linear-gradient(135deg, #e91e63, #c2185b);
+/* Альбомная ориентация на телефонах */
+@media (max-width: 850px) and (orientation: landscape) {
+    .game-container { height: auto; min-height: 100vh; }
+    .levels-sidebar { width: 250px; }
+    .practice-graph-container canvas { max-width: 400px; }
+    .content-area { height: auto; min-height: calc(100vh - 60px); }
 }
 
-.reviews-btn:hover {
-    background: linear-gradient(135deg, #c2185b, #ad1457);
+/* Планшеты в портретной ориентации */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .practice-graph-container canvas { max-width: 600px; }
+    .game-tab-btn { padding: 12px 20px; }
+    .game-tab-btn .tab-icon { font-size: 1.5rem; }
+    .game-tab-btn .tab-label { font-size: 0.9rem; }
 }
 
-/* Стили для формы отзыва */
-.review-form {
-    background: linear-gradient(135deg, #1e2f3a, #16242e);
-    border-radius: 16px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(255, 165, 0, 0.3);
-}
-
-.review-form h4 {
-    color: #ffd966;
-    margin-bottom: 12px;
-    font-size: 1rem;
-}
-
-.rating-input {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-
-.rating-input input {
-    display: none;
-}
-
-.rating-input label {
-    font-size: 2rem;
-    color: #555;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.rating-input label:hover,
-.rating-input label:hover ~ label,
-.rating-input input:checked ~ label {
-    color: #ffc107;
-}
-
-.review-text-input {
-    width: 100%;
-    background: #0f1a1f;
-    border: 1px solid #ffa500;
-    border-radius: 12px;
-    padding: 10px;
-    color: white;
-    font-size: 0.9rem;
-    resize: vertical;
-    margin-bottom: 12px;
-}
-
-.review-text-input:focus {
-    outline: none;
-    border-color: #ffd966;
-}
-
-.submit-review-btn {
-    background: linear-gradient(95deg, #ffa500, #ff7e05);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    color: white;
-    width: 100%;
-}
-
-.reviews-list {
-    max-height: 400px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.review-item {
-    background: rgba(30, 40, 50, 0.5);
-    border-radius: 12px;
-    padding: 12px;
-    border-left: 3px solid #ffa500;
-}
-
-.review-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.review-author {
-    font-weight: bold;
-    color: #ffd966;
-    font-size: 0.85rem;
-}
-
-.review-rating {
-    display: flex;
-    gap: 3px;
-}
-
-.review-star {
-    color: #ffc107;
-    font-size: 0.9rem;
-}
-
-.review-star.empty {
-    color: #555;
-}
-
-.review-date {
-    font-size: 0.65rem;
-    color: #888;
-}
-
-.review-text {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: #ddd;
-}
-
-.delete-review-btn {
-    background: rgba(231, 76, 60, 0.3);
-    border: none;
-    color: #e74c3c;
-    cursor: pointer;
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    border-radius: 10px;
-    margin-top: 8px;
-    transition: 0.2s;
-}
-
-.delete-review-btn:hover {
-    background: #e74c3c;
-    color: white;
-}
-
-.no-reviews {
-    text-align: center;
-    color: #888;
-    padding: 20px;
-}
-
-.average-rating {
-    text-align: center;
-    padding: 10px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-.average-rating .rating-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffc107;
-}
-
-.average-rating .rating-stars {
-    font-size: 1.2rem;
-}
-
-.average-rating .rating-count {
-    font-size: 0.8rem;
-    color: #aaa;
+/* Десктопы и большие экраны */
+@media (min-width: 1025px) {
+    .practice-graph-container canvas { width: 800px; height: 800px; }
+    .content-area { max-width: 1200px; margin: 0 auto; }
 }
